@@ -1,0 +1,36 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ShuDianYi/simulation/modelsim
+vLED
+!s110 1694743779
+!i10b 1
+!s100 YiMAkRb[TUYbn09ea=l0m2
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+IUWml;]iD;JVG:]m<fV8zm1
+R0
+w1694743319
+8D:/ShuDianYi/LED.v
+FD:/ShuDianYi/LED.v
+!i122 0
+L0 18 9
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2020.4;71
+r1
+!s85 0
+31
+!s108 1694743779.000000
+!s107 D:/ShuDianYi/LED.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/ShuDianYi|D:/ShuDianYi/LED.v|
+!i113 0
+o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 -vlog01compat -work work +incdir+D:/ShuDianYi -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0
+n@l@e@d

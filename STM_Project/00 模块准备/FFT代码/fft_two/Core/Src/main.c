@@ -1,0 +1,207 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "usart.h"
+#include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+#include "stdio.h"
+#include "arm_math.h"
+#include "arm_const_structs.h"
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define NPT 256
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+int fputc(int c,FILE*stream)
+{
+HAL_UART_Transmit(&huart1,(unsigned char *)&c,1,1000);
+	return 1;
+}
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
+/* USER CODE BEGIN PV */
+float data[NPT]={747,443,630,679,741,735,607,476,298,95,-63,-246,-352,-472,-526,-548,-612,-601,-584,-563,-471,-383,-225,-127,63,266,429,591,710,740,717,622,457,303,112,-76,-227,
+	-345,-435,-528,-585,-607,-609,-563,-530,-439,-386,-271,-94,38,293,437,594,688,755,722,623,516,290,106,-62,-226,-349,-449,-503,-573,-596,-615,-596,-540,-496,-407,-281,-99,53,226,
+	408,585,725,723,719,645,486,319,123,-69,-218,-346,-452,-508,-563,-585,-613,-572,-549,-481,-359,-279,-127,67,227,437,577,681,758,742,627,494,322,146,-51,-178,-350,-449,-499,-608,-596,
+	-608,-600,-538,-479,-388,-267,-130,41,248,415,588,688,734,718,636,500,320,135,-23,-210,-343,-434,-511,-566,-590,-604,-581,-544,-499,-395,-281,-136,38,226,407,568,683,769,722,637,509,
+	336,141,-38,-217,-335,-436,-546,-563,-594,-620,-583,-544,-488,-395,-288,-144,42,215,404,561,684,738,722,626,498,331,140,-43,-199,-331,-440,-515,-561,-574,-604,-584,-516,-490,-403,-290,
+	-133,43,211,398,557,715,733,718,629,507,336,176,-36,-194,-329,-435,-510,-554,-550,-606,-584,-540,-492,-408,-291,-144,18,208,401,551,672,757,720,643,547,342,154,-24,-181,-322,-428,-485,
+	-559,-593,-599,-588,-548,-489,-411,-296,-152,15,195,383,551,667,708,724};
+
+//输入信号
+float data_in[NPT*2]={0};
+float data_t[NPT]={0};
+float data_out[NPT/2];//输出信号
+/* USER CODE END PV */
+int j=0,i=0;
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+/* USER CODE END 0 */
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void)
+{
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_USART1_UART_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+	for(j=0;j<NPT;j++)
+		{
+			data_in[j*2]=data[j];
+			data_in[j*2+1]=0;
+		}
+			arm_cfft_f32(&arm_cfft_sR_f32_len256,data_in,0,1);
+    	arm_cmplx_mag_f32(data_in,data_out,NPT/2);
+		for(i=0;i<128;i++)
+		{
+		  printf("%f\r\n",data_out[i]/128);	
+		}
+		HAL_Delay(1000);
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+  * in the RCC_OscInitTypeDef structure.
+  */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSEPredivValue = RCC_HSE_PREDIV_DIV1;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL9;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Initializes the CPU, AHB and APB buses clocks
+  */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

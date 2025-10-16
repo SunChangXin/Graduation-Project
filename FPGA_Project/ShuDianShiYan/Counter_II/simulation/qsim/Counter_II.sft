@@ -1,0 +1,4 @@
+set tool_name "Questa Intel FPGA (Verilog)"
+set corner_file_list {
+    {{"Slow Model"} {Counter_II.vo Counter_II_v.sdo}}
+}

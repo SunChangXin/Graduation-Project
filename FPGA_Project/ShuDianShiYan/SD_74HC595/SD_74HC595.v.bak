@@ -1,0 +1,20 @@
+module SD_74HC595();
+	input clk;
+	input rst;
+	input DS;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+endmodule

@@ -1,0 +1,26 @@
+|decoder_3to8
+A[0] => Decoder0.IN2
+A[1] => Decoder0.IN1
+A[2] => Decoder0.IN0
+E1 => always0.IN0
+E2_low => always0.IN1
+E3_low => always0.IN1
+Y_low[0] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[1] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[2] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[3] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[4] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[5] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[6] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+Y_low[7] <= Y_low.DB_MAX_OUTPUT_PORT_TYPE
+sem[0] <= sem[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[1] <= sem[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[2] <= sem[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[3] <= sem[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[4] <= sem[4]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[5] <= sem[5]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[6] <= sem[6]$latch.DB_MAX_OUTPUT_PORT_TYPE
+sem[7] <= <GND>
+sem[8] <= <GND>
+
+

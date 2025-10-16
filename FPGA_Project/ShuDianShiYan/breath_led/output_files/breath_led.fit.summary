@@ -1,0 +1,18 @@
+Fitter Status : Successful - Mon Sep 25 21:37:01 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : breath_led
+Top-level Entity Name : breath_led
+Family : MAX 10
+Device : 10M02SCM153I7G
+Timing Models : Final
+Total logic elements : 103 / 2,304 ( 4 % )
+    Total combinational functions : 102 / 2,304 ( 4 % )
+    Dedicated logic registers : 51 / 2,304 ( 2 % )
+Total registers : 51
+Total pins : 3 / 112 ( 3 % )
+Total virtual pins : 0
+Total memory bits : 0 / 110,592 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 32 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0

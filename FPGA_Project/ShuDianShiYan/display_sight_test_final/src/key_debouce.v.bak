@@ -1,0 +1,82 @@
+module key_debounce (   
+    input  wire     clk,     // 系统时钟 50MHz
+    input  wire     rst_n,   // 复位信号，低电平有效
+    input  wire     key,     // 按键输入信号
+    output reg      key_done // 消抖之后的按键信号输出
+);
+
+reg                 key_r0;  // 同步寄存器，用于滤波，滤除小于一个周期的抖动
+reg                 key_r1;  // 打拍寄存器，用于进一步稳定信号
+reg                 flag;    // 标志位，用于指示消抖过程的开始
+wire                nedge;   // 下降沿检测信号，检测到下降沿代表开始抖动
+
+// 计时器定义
+reg [19:0]          cnt;     // 20位计时器
+wire                add_cnt; // 计时器启动信号
+wire                end_cnt; // 计时结束信号
+
+parameter           MAX_CNT=20'd1_000_000;  // 设定20ms延时常量
+
+// 同步过程
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        key_r0 <= 1'b1; // 在复位时，将key_r0置高
+    end
+    else
+        key_r0 <= key; // 否则，将按键信号赋值给key_r0
+end
+
+// 打拍过程
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        key_r1 <= 1'b1;    
+    end
+    else
+        key_r1 <= key_r0; // 将key_r0的值赋给key_r1，形成一级打拍
+end
+
+assign nedge = ~key_r0 & key_r1;  // 检测下降沿，当key_r0从高变低时，nedge为高
+
+// 标志位设置
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        flag <= 1'b0; 
+    end
+    else if (nedge) begin
+        flag <= 1'b1; // 当检测到下降沿时，设置标志位
+    end
+    else if (end_cnt) begin
+        flag <= 1'b0; // 当计时结束时，清除标志位
+    end
+end
+
+// 延时模块
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        cnt <= 20'b0; // 在复位时清零计时器
+    end
+    else if (add_cnt) begin
+        if (end_cnt) begin
+            cnt <= 20'b0; // 计时满时清零计时器
+        end
+        else
+            cnt <= cnt + 1; // 否则计时器递增
+    end
+end
+
+assign add_cnt = flag;                    // 当标志位为高时，启动计时器
+assign end_cnt = add_cnt && cnt == MAX_CNT - 1; // 当计时器计数达到预设值时，表示计时结束
+
+// 输出处理
+always @(posedge clk or negedge rst_n) begin
+    if (!rst_n) begin
+        key_done <= 1'b0; 
+    end
+    else if (end_cnt) begin            // 延时20ms后采样按键信号
+        key_done <= ~key_r0;
+    end
+    else
+        key_done <= 1'b0; // 其他情况下保持输出为低
+end
+
+endmodule 

@@ -1,0 +1,31 @@
+module Car_Led();
+	input [3:0] SW; // 开关控制汽车状态
+	input clk; 
+	input rst; 
+	output reg [5:0] led; // 两个三色灯
+	
+	wire clk_1Hz;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+endmodule

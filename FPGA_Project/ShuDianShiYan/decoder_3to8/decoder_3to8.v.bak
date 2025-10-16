@@ -1,0 +1,46 @@
+module    decoder_3to8(A,E1,E2_low,E3_low,Y_low,sem);
+	input  [2:0]  A;  //3位输入
+	input  E1;  //高电平有效使能端
+	input  E2_low;   //低电平有效使能端
+	input  E3_low;   //低电平有效使能端
+	output  reg[7:0]  Y_low;   //8位输出，低电平有效
+	output  reg[6:0]  sem;  //一位数码管显示输出是第几位 7段数码管
+    //在always模块中的被赋值变量均为寄存器类型！
+
+always @ (A or E1 or E2_low or E3_low)   //行为语句模块，敏感信号
+	begin
+		if(E1 && ~E2_low && ~E3_low)    //使能输入有效
+		    case(A)
+			3'b000 : Y_low = 8'b11111110;
+			3'b001 : Y_low = 8'b11111101;
+			3'b010 : Y_low = 8'b11111011;
+			3'b011 : Y_low = 8'b11110111;
+			3'b100 : Y_low = 8'b11101111;
+			3'b101 : Y_low = 8'b11011111;
+			3'b110 : Y_low = 8'b10111111;
+			3'b111 : Y_low = 8'b01111111;
+            default : Y_low = 8'b11111111;
+		endcase    //case模块结束
+        else   //使能端无效情况
+               Y_low = 8'b11111111;          
+	end   //if模块结束
+
+always @ (A or E1 or E2_low or E3_low)    //7段数码管显示哪一位输出
+   begin
+       if(E1  &&  ~E2_low  &&  ~E3_low)
+          case(A)
+          3'b000 : sem = 7'b0111111;
+          3'b001 : sem = 7'b0000110;
+          3'b010 : sem = 7'b1011011;
+          3'b011 : sem = 7'b1001111;
+          3'b100 : sem = 7'b1100110;
+          3'b101 : sem = 7'b1101101;
+          3'b110 : sem = 7'b1111101;
+          3'b111 : sem = 7'b0000111;
+          default : sem = 7'b0111111;
+          endcase
+   end      
+endmodule
+————————————————
+版权声明：本文为CSDN博主「whitebearjj」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/weixin_45329944/article/details/115309557

@@ -1,0 +1,17 @@
+module Vision_Tester();
+	input clk;
+	input rst;
+	input stop;  // BTN0为启动键，按下后8×8点阵显示视力为0.8的视标（方向随机），同时数码管DISP3~DISP2显示与视标对应的视力
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+endmodule

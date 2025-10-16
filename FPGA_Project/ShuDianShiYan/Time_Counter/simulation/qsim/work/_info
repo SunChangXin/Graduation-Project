@@ -1,0 +1,82 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/ShuDianShiYan/Time_Counter/simulation/qsim
+vhard_block
+Z1 !s110 1700040228
+!i10b 1
+!s100 8Hmam^[anioa8fl=5Z@]61
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IJkNz9<4DDc@C5I2Y6;goX2
+R0
+Z3 w1700040227
+Z4 8Time_Counter.vo
+Z5 FTime_Counter.vo
+!i122 6
+L0 5394 42
+Z6 VDg1SIo80bB@j0V0VzS_@n1
+Z7 OL;L;2020.4;71
+r1
+!s85 0
+31
+Z8 !s108 1700040228.000000
+Z9 !s107 Time_Counter.vo|
+Z10 !s90 -work|work|Time_Counter.vo|
+!i113 0
+Z11 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z12 tCvgOpt 0
+vTime_Counter
+R1
+!i10b 1
+!s100 SR2K5N=1EYL`k]7gR]Dhb1
+R2
+IaOILGkP2L0;PT>f^6>j<X0
+R0
+R3
+R4
+R5
+!i122 6
+L0 32 5361
+R6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 0
+R11
+R12
+n@time_@counter
+vTime_Counter_vlg_vec_tst
+R1
+!i10b 1
+!s100 B_]YHl`kmb6eC97cAS7QX0
+R2
+I]FA?``[zj?3lP^`nlQz:;3
+R0
+w1700040226
+8Waveform.vwf.vt
+FWaveform.vwf.vt
+!i122 7
+L0 30 62
+R6
+R7
+r1
+!s85 0
+31
+R8
+!s107 Waveform.vwf.vt|
+!s90 -work|work|Waveform.vwf.vt|
+!i113 0
+R11
+R12
+n@time_@counter_vlg_vec_tst

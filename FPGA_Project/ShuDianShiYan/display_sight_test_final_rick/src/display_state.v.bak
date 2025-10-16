@@ -1,0 +1,174 @@
+module display_state
+(
+    input           clk             , // 系统时钟
+    input           rst_n           , // 复位信号，低电平有效
+    output  [7:0]   col_pin         , // 列引脚输出
+    output  [7:0]   row_pin         , // 行引脚输出
+    input           RESTARTdown     , // 重启按键信号
+    input           LeftDown        , // 左按键信号
+    input           RightDown       , // 右按键信号
+    input           upDown          , // 上按键信号
+    input           DownDown          // 下按键信号
+);
+
+// 状态机的状态定义
+localparam  STATE_IDLE         = 3'b001   ; // 空闲状态
+localparam  START_DISPLAY      = 3'b010   ; // 开始显示状态
+localparam  STATE_FALSE        = 3'b100   ; // 错误状态
+
+reg     [2:0]   direction       ; // 方向控制
+wire    [2:0]   ran_num         ; // 随机数
+reg             downfalse       ; // 错误按下标志
+reg             downtrue        ; // 正确按下标志
+reg     [3:0]   cnt_level       ; // 计数器，控制显示级别
+reg     [2:0]   state_c         ; // 当前状态
+reg     [2:0]   state_n         ; // 下一个状态
+
+wire    [7:0]   col             ; // 列数据
+wire    [7:0]   row             ; // 行数据
+
+assign          col_pin = col  ; // 列引脚赋值
+assign          row_pin = row  ; // 行引脚赋值
+
+reg             direction_flag  ; // 方向标志
+reg     [2:0]   ran_num_reg     ; // 随机数寄存器
+
+// 随机数寄存器的处理
+always @(posedge clk or negedge rst_n)
+    if (rst_n == 0) 
+        ran_num_reg <=  3'd0       ;   
+    else  
+        ran_num_reg <=  ran_num    ;
+
+// 状态机当前状态的更新
+always @(posedge clk or negedge rst_n)
+    if (rst_n == 0) 
+        state_c <= STATE_IDLE; 
+    else 
+        state_c <= state_n;
+
+// 状态机下一个状态的逻辑
+always @(*)
+    begin
+        case(state_c)
+            STATE_IDLE:
+                if(RESTARTdown)
+                    state_n = START_DISPLAY ;
+                else 
+                    state_n = STATE_IDLE    ; 
+            START_DISPLAY:
+                if(cnt_level == 0 || cnt_level > 8)
+                    state_n = STATE_FALSE;
+                else
+                    state_n = START_DISPLAY;
+            STATE_FALSE:
+                if(RESTARTdown)
+                    state_n = STATE_IDLE;
+                else
+                    state_n = STATE_FALSE; 
+            default:
+                    state_n = STATE_IDLE;
+        endcase         
+    end
+
+// 计数器的处理
+always @(posedge clk or negedge rst_n)
+    if (rst_n == 0) 
+        cnt_level   <=  4'd4; 
+    else if (state_c == STATE_IDLE && state_n == START_DISPLAY)
+        cnt_level   <=  4'd4; 
+    else if (state_c == START_DISPLAY && downfalse)
+        cnt_level   <=  cnt_level + 4'd1;       
+    else if (state_c == START_DISPLAY && downtrue)
+        cnt_level   <=  cnt_level - 4'd1;   
+    else 
+        cnt_level   <=  cnt_level; 
+
+// 方向判断
+always @(posedge clk or negedge rst_n)
+    if (rst_n == 0) 
+        begin
+            downfalse   <=  0;      
+            downtrue    <=  0;  
+        end     
+    else if (state_c == START_DISPLAY && direction == ran_num_reg && direction != 0)
+        begin
+            downfalse   <=  0;      
+            downtrue    <=  1;  
+        end 
+    else if (state_c == START_DISPLAY && direction != ran_num_reg && direction != 0)
+        begin
+            downfalse   <=  1;      
+            downtrue    <=  0;  
+        end 
+    else 
+        begin
+            downfalse   <=  0;      
+            downtrue    <=  0;
+        end 
+
+// 方向按键的处理
+always @(posedge clk or negedge rst_n)
+    if (rst_n == 0) 
+        direction   <=  3'd0; 
+    else if (state_c == START_DISPLAY && LeftDown )
+        direction   <=  3'd1; 
+    else if (state_c == START_DISPLAY && RightDown )
+        direction   <=  3'd2; 
+    else if (state_c == START_DISPLAY && upDown   )
+        direction   <=  3'd3;
+    else if (state_c == START_DISPLAY && DownDown )
+        direction   <=  3'd4;       
+    else 
+        direction   <=  3'd0; 
+
+// 显示数据的定义
+reg [63:0] DISP_1_5_right   = {8'h00,8'h00,8'h18,8'h10,8'h18,8'h00,8'h00,8'h00};
+reg [63:0] DISP_1_2_right   = {8'h00,8'h00,8'h38,8'h20,8'h38,8'h00,8'h00,8'h00};
+reg [63:0] DISP_1_0_right   = {8'h00,8'h00,8'h38,8'h20,8'h20,8'h38,8'h00,8'h00};
+reg [63:0] DISP_0_8_right   = {8'h00,8'h00,8'h3C,8'h20,8'h20,8'h3C,8'h00,8'h00};
+
+reg [63:0] DISP_0_6_right   = {8'h00,8'h7C,8'h40,8'h40,8'h40,8'h7C,8'h00,8'h00};
+reg [63:0] DISP_0_4_right   = {8'h00,8'h7C,8'h40,8'h40,8'h40,8'h40,8'h7C,8'h00};
+reg [63:0] DISP_0_2_right   = {8'h00,8'h7E,8'h40,8'h40,8'h40,8'h40,8'h40,8'h7E};
+reg [63:0] DISP_0_1_right   = {8'hFF,8'h80,8'h80,8'h80,8'h80,8'h80,8'h80,8'hFF};
+
+reg [63:0] DISP_error       = {8'h81,8'h42,8'h24,8'h18,8'h18,8'h24,8'h42,8'h81};
+
+// 根据cnt_level显示不同的数据
+reg [63:0] DISP_DATA;
+always @(*)
+    begin
+        case(cnt_level)
+            1:      DISP_DATA   =   DISP_1_5_right  ;
+            2:      DISP_DATA   =   DISP_1_2_right  ;
+            3:      DISP_DATA   =   DISP_1_0_right  ;
+            4:      DISP_DATA   =   DISP_0_8_right  ;
+            5:      DISP_DATA   =   DISP_0_6_right  ;
+            6:      DISP_DATA   =   DISP_0_4_right  ;
+            7:      DISP_DATA   =   DISP_0_2_right  ;
+            8:      DISP_DATA   =   DISP_0_1_right  ;
+            default:
+                    DISP_DATA   =   DISP_error      ;
+        endcase         
+    end
+
+// 数码管扫描模块
+seg_scan seg_scan_inst(
+    .clk        (   clk         ),
+    .rst_n      (   rst_n       ),
+    .mode       (   ran_num     ),
+    .row_sel    (   row         ),      // 数码管片选
+    .col_sel    (   col         ),      // 数码管段选，MSB为小数点
+    .DISP_DATA  (   DISP_DATA   )
+);
+        
+// 随机数生成模块
+random_num random_num_inst(
+   .clk        (   clk                                     ),
+   .rst_n      (   rst_n                                   ),
+   .en         (   LeftDown || RightDown || upDown || DownDown || RESTARTdown   ),
+   .ran_num    (   ran_num                                 ) // 1 2 3 4
+);
+
+endmodule

@@ -1,0 +1,17 @@
+module my_qj38();
+  input [3:0] Ai;
+  input [3:0] Bi;
+  input [3:0] Ci;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+endmodule

@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Dec 13 18:55:53 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : Guess
+Top-level Entity Name : Guess
+Family : MAX 10
+Device : 10M02SCM153I7G
+Timing Models : Final
+Total logic elements : 166 / 2,304 ( 7 % )
+    Total combinational functions : 161 / 2,304 ( 7 % )
+    Dedicated logic registers : 93 / 2,304 ( 4 % )
+Total registers : 93
+Total pins : 41 / 112 ( 37 % )
+Total virtual pins : 0
+Total memory bits : 0 / 110,592 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 32 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0

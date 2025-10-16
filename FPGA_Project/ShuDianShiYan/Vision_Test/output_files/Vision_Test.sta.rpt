@@ -1,0 +1,1186 @@
+Timing Analyzer report for Vision_Test
+Sat Dec 23 10:04:26 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'led_display:led_inst|sel_r[0]'
+ 12. Setup: 'sys_clk'
+ 13. Setup: 'state_display:display|DianZhen_Data[10]'
+ 14. Setup: 'led_display:led_inst|display_divider:u10|clk_p'
+ 15. Setup: 'state_display:display|display_divider:d10|clk_p'
+ 16. Hold: 'state_display:display|DianZhen_Data[10]'
+ 17. Hold: 'led_display:led_inst|sel_r[0]'
+ 18. Hold: 'led_display:led_inst|display_divider:u10|clk_p'
+ 19. Hold: 'state_display:display|display_divider:d10|clk_p'
+ 20. Hold: 'sys_clk'
+ 21. Recovery: 'led_display:led_inst|sel_r[0]'
+ 22. Recovery: 'state_display:display|display_divider:d10|clk_p'
+ 23. Removal: 'led_display:led_inst|sel_r[0]'
+ 24. Removal: 'state_display:display|display_divider:d10|clk_p'
+ 25. Setup Transfers
+ 26. Hold Transfers
+ 27. Recovery Transfers
+ 28. Removal Transfers
+ 29. Report TCCS
+ 30. Report RSKM
+ 31. Unconstrained Paths Summary
+ 32. Clock Status Summary
+ 33. Unconstrained Input Ports
+ 34. Unconstrained Output Ports
+ 35. Unconstrained Input Ports
+ 36. Unconstrained Output Ports
+ 37. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++--------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                        ;
++-----------------------+--------------------------------------------------------+
+; Quartus Prime Version ; Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                                 ;
+; Revision Name         ; Vision_Test                                            ;
+; Device Family         ; MAX II                                                 ;
+; Device Name           ; EPM1270T144C5                                          ;
+; Timing Models         ; Final                                                  ;
+; Delay Model           ; Slow Model                                             ;
+; Rise/Fall Delays      ; Unavailable                                            ;
++-----------------------+--------------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                           ;
++-------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------+
+; Clock Name                                      ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                             ;
++-------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------+
+; led_display:led_inst|display_divider:u10|clk_p  ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { led_display:led_inst|display_divider:u10|clk_p }  ;
+; led_display:led_inst|sel_r[0]                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { led_display:led_inst|sel_r[0] }                   ;
+; state_display:display|DianZhen_Data[10]         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { state_display:display|DianZhen_Data[10] }         ;
+; state_display:display|display_divider:d10|clk_p ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { state_display:display|display_divider:d10|clk_p } ;
+; sys_clk                                         ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { sys_clk }                                         ;
++-------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Fmax Summary                                                                                             ;
++------------+-----------------+-------------------------------------------------+-------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name                                      ; Note                    ;
++------------+-----------------+-------------------------------------------------+-------------------------+
+; 79.46 MHz  ; 79.46 MHz       ; sys_clk                                         ;                         ;
+; 165.29 MHz ; 124.81 MHz      ; led_display:led_inst|sel_r[0]                   ; limit due to hold check ;
+; 245.94 MHz ; 58.01 MHz       ; state_display:display|DianZhen_Data[10]         ; limit due to hold check ;
+; 330.69 MHz ; 330.69 MHz      ; led_display:led_inst|display_divider:u10|clk_p  ;                         ;
+; 365.76 MHz ; 365.76 MHz      ; state_display:display|display_divider:d10|clk_p ;                         ;
++------------+-----------------+-------------------------------------------------+-------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++---------------------------------------------------------------------------+
+; Setup Summary                                                             ;
++-------------------------------------------------+---------+---------------+
+; Clock                                           ; Slack   ; End Point TNS ;
++-------------------------------------------------+---------+---------------+
+; led_display:led_inst|sel_r[0]                   ; -15.004 ; -96.645       ;
+; sys_clk                                         ; -11.585 ; -2012.438     ;
+; state_display:display|DianZhen_Data[10]         ; -8.878  ; -57.536       ;
+; led_display:led_inst|display_divider:u10|clk_p  ; -2.024  ; -3.785        ;
+; state_display:display|display_divider:d10|clk_p ; -1.734  ; -4.711        ;
++-------------------------------------------------+---------+---------------+
+
+
++---------------------------------------------------------------------------+
+; Hold Summary                                                              ;
++-------------------------------------------------+---------+---------------+
+; Clock                                           ; Slack   ; End Point TNS ;
++-------------------------------------------------+---------+---------------+
+; state_display:display|DianZhen_Data[10]         ; -11.281 ; -155.038      ;
+; led_display:led_inst|sel_r[0]                   ; -4.006  ; -24.070       ;
+; led_display:led_inst|display_divider:u10|clk_p  ; -1.932  ; -3.443        ;
+; state_display:display|display_divider:d10|clk_p ; 1.078   ; 0.000         ;
+; sys_clk                                         ; 1.411   ; 0.000         ;
++-------------------------------------------------+---------+---------------+
+
+
++--------------------------------------------------------------------------+
+; Recovery Summary                                                         ;
++-------------------------------------------------+--------+---------------+
+; Clock                                           ; Slack  ; End Point TNS ;
++-------------------------------------------------+--------+---------------+
+; led_display:led_inst|sel_r[0]                   ; -5.548 ; -26.592       ;
+; state_display:display|display_divider:d10|clk_p ; -3.039 ; -9.117        ;
++-------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------+
+; Removal Summary                                                          ;
++-------------------------------------------------+--------+---------------+
+; Clock                                           ; Slack  ; End Point TNS ;
++-------------------------------------------------+--------+---------------+
+; led_display:led_inst|sel_r[0]                   ; -3.109 ; -18.779       ;
+; state_display:display|display_divider:d10|clk_p ; 2.940  ; 0.000         ;
++-------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Pulse Width Summary                                              ;
++-------------------------------------------------+--------+---------------+
+; Clock                                           ; Slack  ; End Point TNS ;
++-------------------------------------------------+--------+---------------+
+; sys_clk                                         ; -2.289 ; -2.289        ;
+; state_display:display|DianZhen_Data[10]         ; -2.261 ; -161.890      ;
+; led_display:led_inst|display_divider:u10|clk_p  ; 0.234  ; 0.000         ;
+; state_display:display|display_divider:d10|clk_p ; 0.234  ; 0.000         ;
+; led_display:led_inst|sel_r[0]                   ; 0.500  ; 0.000         ;
++-------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'led_display:led_inst|sel_r[0]'                                                                                                                                                                        ;
++---------+---------------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; Slack   ; From Node                             ; To Node                           ; Launch Clock                                   ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++---------+---------------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; -15.004 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 14.623     ;
+; -13.498 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 13.117     ;
+; -13.140 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.480      ; 14.777     ;
+; -13.078 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.461      ; 14.229     ;
+; -12.909 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 14.636     ;
+; -12.723 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.573      ; 14.443     ;
+; -12.508 ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 12.127     ;
+; -12.265 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.280      ; 13.904     ;
+; -12.234 ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.196      ; 13.498     ;
+; -11.916 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 13.643     ;
+; -11.537 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.461      ; 12.688     ;
+; -11.247 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.480      ; 12.884     ;
+; -10.987 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.573      ; 12.707     ;
+; -10.926 ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 12.653     ;
+; -10.812 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.280      ; 12.451     ;
+; -10.701 ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.196      ; 11.965     ;
+; -10.547 ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.461      ; 11.698     ;
+; -10.257 ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.480      ; 11.894     ;
+; -9.997  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.573      ; 11.717     ;
+; -9.845  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 9.464      ;
+; -9.822  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.280      ; 11.461     ;
+; -9.711  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.196      ; 10.975     ;
+; -8.263  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.579      ; 9.990      ;
+; -7.884  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.461      ; 9.035      ;
+; -7.594  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.480      ; 9.231      ;
+; -7.432  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 6.423      ;
+; -7.334  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.573      ; 9.054      ;
+; -7.313  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 6.304      ;
+; -7.159  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.280      ; 8.798      ;
+; -7.048  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.196      ; 8.312      ;
+; -5.390  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.852      ; 6.399      ;
+; -5.378  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 6.477      ;
+; -5.328  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.833      ; 5.851      ;
+; -5.292  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.946      ; 5.299      ;
+; -5.285  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 6.384      ;
+; -5.170  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.946      ; 5.177      ;
+; -5.091  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.852      ; 6.100      ;
+; -4.999  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.833      ; 5.522      ;
+; -4.973  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.945      ; 6.065      ;
+; -4.899  ; state_display:display|ctr_signal      ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; 0.500        ; 3.196      ; 6.163      ;
+; -4.826  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.945      ; 5.918      ;
+; -4.732  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.652      ; 5.743      ;
+; -4.675  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.568      ; 5.311      ;
+; -4.613  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.652      ; 5.624      ;
+; -4.556  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.568      ; 5.192      ;
+; -2.525  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.398      ; 6.339      ;
+; -2.025  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.398      ; 6.339      ;
+; -0.900  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.398      ; 6.822      ;
+; -0.661  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.299      ; 6.493      ;
+; -0.599  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.280      ; 5.945      ;
+; -0.400  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.398      ; 6.822      ;
+; -0.244  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.392      ; 6.159      ;
+; -0.161  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.299      ; 6.493      ;
+; -0.099  ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.280      ; 5.945      ;
+; 0.096   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.393      ; 4.734      ;
+; 0.204   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.099      ; 5.630      ;
+; 0.238   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.015      ; 5.221      ;
+; 0.256   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.392      ; 6.159      ;
+; 0.596   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.393      ; 4.734      ;
+; 0.704   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.099      ; 5.630      ;
+; 0.738   ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.015      ; 5.221      ;
++---------+---------------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'sys_clk'                                                                                                                                             ;
++---------+------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                          ; To Node                                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+; -11.585 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.252     ;
+; -11.522 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.189     ;
+; -11.510 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[22] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.177     ;
+; -11.415 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.082     ;
+; -11.404 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[41] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.071     ;
+; -11.358 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[50] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.025     ;
+; -11.352 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 12.019     ;
+; -11.310 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[22] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.977     ;
+; -11.214 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[32] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.881     ;
+; -11.169 ; state_display:display|count[2]     ; state_display:display|Vision_value[1]   ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.836     ;
+; -11.164 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.831     ;
+; -11.158 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[11] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.825     ;
+; -11.158 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[50] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.825     ;
+; -11.144 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[32] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.811     ;
+; -11.138 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[44] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.805     ;
+; -11.137 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[29] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.804     ;
+; -11.107 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[22] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.774     ;
+; -11.102 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[41] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.769     ;
+; -11.085 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.752     ;
+; -11.080 ; state_display:display|cnt_level[3] ; state_display:display|Vision_value[1]   ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.747     ;
+; -11.068 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[44] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.735     ;
+; -11.067 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[29] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.734     ;
+; -11.064 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.731     ;
+; -11.060 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[54] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.727     ;
+; -11.059 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[31] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.726     ;
+; -11.044 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[32] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.711     ;
+; -11.042 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[22] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.709     ;
+; -11.028 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.695     ;
+; -11.025 ; state_display:display|count[3]     ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.692     ;
+; -10.999 ; state_display:display|count[4]     ; state_display:display|Vision_value[1]   ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.666     ;
+; -10.990 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[54] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.657     ;
+; -10.988 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[11] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.655     ;
+; -10.985 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.652     ;
+; -10.985 ; state_display:display|count[1]     ; state_display:display|DianZhen_Data[41] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.652     ;
+; -10.981 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.648     ;
+; -10.972 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.639     ;
+; -10.970 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[63] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.637     ;
+; -10.968 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[44] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.635     ;
+; -10.967 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[29] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.634     ;
+; -10.962 ; state_display:display|count[3]     ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.629     ;
+; -10.961 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[32] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.628     ;
+; -10.960 ; state_display:display|cnt_level[0] ; state_display:display|Vision_value[1]   ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.627     ;
+; -10.955 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[50] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.622     ;
+; -10.890 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[50] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.557     ;
+; -10.890 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[54] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.557     ;
+; -10.885 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[44] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.552     ;
+; -10.884 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[29] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.551     ;
+; -10.883 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.550     ;
+; -10.881 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[11] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.548     ;
+; -10.878 ; state_display:display|cnt_level[2] ; state_display:display|Vision_value[1]   ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.545     ;
+; -10.872 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[22] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.539     ;
+; -10.871 ; state_display:display|count[1]     ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.538     ;
+; -10.870 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.537     ;
+; -10.857 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[11] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.524     ;
+; -10.852 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.519     ;
+; -10.851 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[18] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.518     ;
+; -10.843 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[53] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.510     ;
+; -10.825 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.492     ;
+; -10.813 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[22] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.480     ;
+; -10.808 ; state_display:display|count[1]     ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.475     ;
+; -10.807 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[42] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.474     ;
+; -10.807 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[54] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.474     ;
+; -10.803 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.470     ;
+; -10.802 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[13] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.469     ;
+; -10.800 ; state_display:display|count[0]     ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.467     ;
+; -10.800 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[63] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.467     ;
+; -10.782 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.449     ;
+; -10.781 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[18] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.448     ;
+; -10.776 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[28] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.443     ;
+; -10.774 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[27] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.441     ;
+; -10.765 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[51] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.432     ;
+; -10.762 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.429     ;
+; -10.757 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[31] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.424     ;
+; -10.745 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[35] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.412     ;
+; -10.737 ; state_display:display|count[0]     ; state_display:display|DianZhen_Data[20] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.404     ;
+; -10.737 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[42] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.404     ;
+; -10.720 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[50] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.387     ;
+; -10.717 ; state_display:display|count[0]     ; state_display:display|Vision_value[1]   ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.384     ;
+; -10.712 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[32] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.379     ;
+; -10.702 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[49] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.369     ;
+; -10.700 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[6]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.367     ;
+; -10.700 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[14] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.367     ;
+; -10.694 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[9]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.361     ;
+; -10.682 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[21] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.349     ;
+; -10.681 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[18] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.348     ;
+; -10.676 ; state_display:display|count[2]     ; state_display:display|DianZhen_Data[5]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.343     ;
+; -10.661 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[50] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.328     ;
+; -10.657 ; state_display:display|cnt_level[2] ; state_display:display|DianZhen_Data[11] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.324     ;
+; -10.654 ; state_display:display|count[3]     ; state_display:display|DianZhen_Data[32] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.321     ;
+; -10.651 ; state_display:display|cnt_level[3] ; state_display:display|DianZhen_Data[5]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.318     ;
+; -10.645 ; state_display:display|count[1]     ; state_display:display|DianZhen_Data[25] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.312     ;
+; -10.640 ; state_display:display|count[1]     ; state_display:display|DianZhen_Data[31] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.307     ;
+; -10.637 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[42] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.304     ;
+; -10.636 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[44] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.303     ;
+; -10.635 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[29] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.302     ;
+; -10.633 ; state_display:display|count[4]     ; state_display:display|DianZhen_Data[19] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.300     ;
+; -10.632 ; state_display:display|cnt_level[1] ; state_display:display|DianZhen_Data[11] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.299     ;
+; -10.632 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[49] ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.299     ;
+; -10.630 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[6]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.297     ;
+; -10.624 ; state_display:display|cnt_level[0] ; state_display:display|DianZhen_Data[9]  ; sys_clk      ; sys_clk     ; 1.000        ; 0.000      ; 11.291     ;
++---------+------------------------------------+-----------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'state_display:display|DianZhen_Data[10]'                                                                                                                                                       ;
++--------+-----------------------------------------+---------------------------------------------------+--------------+-----------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                               ; To Node                                           ; Launch Clock ; Latch Clock                             ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------+---------------------------------------------------+--------------+-----------------------------------------+--------------+------------+------------+
+; -8.878 ; state_display:display|DianZhen_Data[54] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 20.126     ;
+; -8.693 ; state_display:display|DianZhen_Data[14] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.941     ;
+; -8.633 ; state_display:display|DianZhen_Data[54] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.881     ;
+; -8.566 ; state_display:display|DianZhen_Data[54] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 19.797     ;
+; -8.448 ; state_display:display|DianZhen_Data[14] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.696     ;
+; -8.381 ; state_display:display|DianZhen_Data[14] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 19.612     ;
+; -8.347 ; state_display:display|DianZhen_Data[49] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.595     ;
+; -8.289 ; state_display:display|DianZhen_Data[54] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 19.529     ;
+; -8.169 ; state_display:display|DianZhen_Data[6]  ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.417     ;
+; -8.104 ; state_display:display|DianZhen_Data[14] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 19.344     ;
+; -8.102 ; state_display:display|DianZhen_Data[49] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.350     ;
+; -8.035 ; state_display:display|DianZhen_Data[49] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 19.266     ;
+; -7.924 ; state_display:display|DianZhen_Data[6]  ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.172     ;
+; -7.857 ; state_display:display|DianZhen_Data[6]  ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 19.088     ;
+; -7.835 ; state_display:display|DianZhen_Data[54] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.725     ;
+; -7.802 ; state_display:display|DianZhen_Data[62] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 19.050     ;
+; -7.758 ; state_display:display|DianZhen_Data[49] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.998     ;
+; -7.742 ; state_display:display|DianZhen_Data[42] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.632     ;
+; -7.690 ; state_display:display|DianZhen_Data[54] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 18.566     ;
+; -7.650 ; state_display:display|DianZhen_Data[14] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.540     ;
+; -7.580 ; state_display:display|DianZhen_Data[6]  ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.820     ;
+; -7.573 ; state_display:display|DianZhen_Data[62] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.463     ;
+; -7.572 ; state_display:display|DianZhen_Data[63] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.820     ;
+; -7.557 ; state_display:display|DianZhen_Data[62] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.805     ;
+; -7.505 ; state_display:display|DianZhen_Data[14] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 18.381     ;
+; -7.490 ; state_display:display|DianZhen_Data[62] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 18.721     ;
+; -7.438 ; state_display:display|DianZhen_Data[42] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.686     ;
+; -7.405 ; state_display:display|DianZhen_Data[45] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.295     ;
+; -7.354 ; state_display:display|DianZhen_Data[35] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.602     ;
+; -7.337 ; state_display:display|DianZhen_Data[42] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.577     ;
+; -7.327 ; state_display:display|DianZhen_Data[63] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.575     ;
+; -7.304 ; state_display:display|DianZhen_Data[49] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.194     ;
+; -7.294 ; state_display:display|DianZhen_Data[37] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.542     ;
+; -7.293 ; state_display:display|DianZhen_Data[19] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.183     ;
+; -7.279 ; state_display:display|DianZhen_Data[33] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.527     ;
+; -7.260 ; state_display:display|DianZhen_Data[63] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 18.491     ;
+; -7.257 ; state_display:display|DianZhen_Data[19] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.497     ;
+; -7.249 ; state_display:display|DianZhen_Data[62] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.489     ;
+; -7.236 ; state_display:display|DianZhen_Data[9]  ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.484     ;
+; -7.200 ; state_display:display|DianZhen_Data[19] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.448     ;
+; -7.193 ; state_display:display|DianZhen_Data[37] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.433     ;
+; -7.192 ; state_display:display|DianZhen_Data[42] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 18.068     ;
+; -7.177 ; state_display:display|DianZhen_Data[6]  ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.067     ;
+; -7.162 ; state_display:display|DianZhen_Data[35] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.402     ;
+; -7.159 ; state_display:display|DianZhen_Data[49] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 18.035     ;
+; -7.142 ; state_display:display|DianZhen_Data[28] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.032     ;
+; -7.129 ; state_display:display|DianZhen_Data[20] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 18.019     ;
+; -7.101 ; state_display:display|DianZhen_Data[45] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.349     ;
+; -7.094 ; state_display:display|DianZhen_Data[19] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.970     ;
+; -7.093 ; state_display:display|DianZhen_Data[20] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.333     ;
+; -7.064 ; state_display:display|DianZhen_Data[33] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.954     ;
+; -7.055 ; state_display:display|DianZhen_Data[50] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.945     ;
+; -7.043 ; state_display:display|DianZhen_Data[35] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.933     ;
+; -7.036 ; state_display:display|DianZhen_Data[20] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.284     ;
+; -7.034 ; state_display:display|DianZhen_Data[33] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.282     ;
+; -7.000 ; state_display:display|DianZhen_Data[45] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.240     ;
+; -6.991 ; state_display:display|DianZhen_Data[9]  ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.239     ;
+; -6.983 ; state_display:display|DianZhen_Data[63] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.223     ;
+; -6.981 ; state_display:display|DianZhen_Data[6]  ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.857     ;
+; -6.972 ; state_display:display|DianZhen_Data[50] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.220     ;
+; -6.967 ; state_display:display|DianZhen_Data[33] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 18.198     ;
+; -6.942 ; state_display:display|DianZhen_Data[18] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.832     ;
+; -6.930 ; state_display:display|DianZhen_Data[20] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.806     ;
+; -6.929 ; state_display:display|DianZhen_Data[32] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.177     ;
+; -6.927 ; state_display:display|DianZhen_Data[37] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.817     ;
+; -6.924 ; state_display:display|DianZhen_Data[9]  ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 18.155     ;
+; -6.916 ; state_display:display|DianZhen_Data[29] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.164     ;
+; -6.906 ; state_display:display|DianZhen_Data[18] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.146     ;
+; -6.881 ; state_display:display|DianZhen_Data[36] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.771     ;
+; -6.862 ; state_display:display|DianZhen_Data[5]  ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.110     ;
+; -6.855 ; state_display:display|DianZhen_Data[45] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.731     ;
+; -6.850 ; state_display:display|DianZhen_Data[29] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.740     ;
+; -6.849 ; state_display:display|DianZhen_Data[18] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.097     ;
+; -6.838 ; state_display:display|DianZhen_Data[28] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.086     ;
+; -6.811 ; state_display:display|DianZhen_Data[42] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.059     ;
+; -6.780 ; state_display:display|DianZhen_Data[50] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 18.020     ;
+; -6.774 ; state_display:display|DianZhen_Data[36] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 18.022     ;
+; -6.750 ; state_display:display|DianZhen_Data[35] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.626     ;
+; -6.743 ; state_display:display|DianZhen_Data[18] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.619     ;
+; -6.737 ; state_display:display|DianZhen_Data[28] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 17.977     ;
+; -6.714 ; state_display:display|DianZhen_Data[32] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.604     ;
+; -6.690 ; state_display:display|DianZhen_Data[33] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 17.930     ;
+; -6.690 ; state_display:display|DianZhen_Data[37] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.566     ;
+; -6.684 ; state_display:display|DianZhen_Data[32] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 17.932     ;
+; -6.670 ; state_display:display|DianZhen_Data[5]  ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 17.910     ;
+; -6.647 ; state_display:display|DianZhen_Data[9]  ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 17.887     ;
+; -6.645 ; state_display:display|DianZhen_Data[51] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 17.893     ;
+; -6.645 ; state_display:display|DianZhen_Data[38] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.535     ;
+; -6.635 ; state_display:display|DianZhen_Data[9]  ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.525     ;
+; -6.617 ; state_display:display|DianZhen_Data[32] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.736     ; 17.848     ;
+; -6.614 ; state_display:display|DianZhen_Data[62] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.490     ;
+; -6.592 ; state_display:display|DianZhen_Data[28] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.468     ;
+; -6.578 ; state_display:display|DianZhen_Data[21] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.468     ;
+; -6.557 ; state_display:display|DianZhen_Data[36] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 17.797     ;
+; -6.542 ; state_display:display|DianZhen_Data[21] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.754     ; 17.782     ;
+; -6.538 ; state_display:display|DianZhen_Data[38] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 17.786     ;
+; -6.529 ; state_display:display|DianZhen_Data[63] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.419     ;
+; -6.514 ; state_display:display|DianZhen_Data[33] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.747     ; 17.390     ;
+; -6.512 ; state_display:display|DianZhen_Data[25] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.752     ; 17.402     ;
+; -6.485 ; state_display:display|DianZhen_Data[21] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk      ; state_display:display|DianZhen_Data[10] ; 0.500        ; 12.753     ; 17.733     ;
++--------+-----------------------------------------+---------------------------------------------------+--------------+-----------------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'led_display:led_inst|display_divider:u10|clk_p'                                                                                                                                                           ;
++--------+-------------------------------+-------------------------------+------------------------------------------------+------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                       ; Launch Clock                                   ; Latch Clock                                    ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-------------------------------+------------------------------------------------+------------------------------------------------+--------------+------------+------------+
+; -2.024 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|display_divider:u10|clk_p ; 1.000        ; 0.000      ; 2.691      ;
+; -1.761 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|display_divider:u10|clk_p ; 1.000        ; 0.000      ; 2.428      ;
+; -1.200 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|display_divider:u10|clk_p ; 1.000        ; 0.000      ; 1.867      ;
+; 1.457  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; 0.500        ; 4.447      ; 3.533      ;
+; 1.878  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; 0.500        ; 4.447      ; 3.112      ;
+; 1.957  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; 1.000        ; 4.447      ; 3.533      ;
+; 2.378  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; 1.000        ; 4.447      ; 3.112      ;
++--------+-------------------------------+-------------------------------+------------------------------------------------+------------------------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'state_display:display|display_divider:d10|clk_p'                                                                                                                                                                  ;
++--------+----------------------------------+----------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                          ; Launch Clock                                    ; Latch Clock                                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+----------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; -1.734 ; state_display:display|temp[0]    ; state_display:display|display_en ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 2.401      ;
+; -1.723 ; state_display:display|temp[0]    ; state_display:display|temp[0]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 2.390      ;
+; -1.259 ; state_display:display|temp[1]    ; state_display:display|display_en ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 1.926      ;
+; -1.254 ; state_display:display|temp[0]    ; state_display:display|temp[1]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 1.921      ;
+; -1.248 ; state_display:display|temp[1]    ; state_display:display|temp[0]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 1.915      ;
+; -0.632 ; state_display:display|display_en ; state_display:display|display_en ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 1.299      ;
+; -0.632 ; state_display:display|temp[1]    ; state_display:display|temp[1]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.000      ; 1.299      ;
++--------+----------------------------------+----------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'state_display:display|DianZhen_Data[10]'                                                                                                                                                                                            ;
++---------+-------------------------------------------------+---------------------------------------------------+-----------------------------------------+-----------------------------------------+--------------+------------+------------+
+; Slack   ; From Node                                       ; To Node                                           ; Launch Clock                            ; Latch Clock                             ; Relationship ; Clock Skew ; Data Delay ;
++---------+-------------------------------------------------+---------------------------------------------------+-----------------------------------------+-----------------------------------------+--------------+------------+------------+
+; -11.281 ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.600     ; 3.819      ;
+; -11.122 ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.600     ; 3.978      ;
+; -10.717 ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.053     ; 3.836      ;
+; -10.660 ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 4.354      ;
+; -10.561 ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.053     ; 3.992      ;
+; -10.546 ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.054     ; 4.008      ;
+; -10.510 ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 4.504      ;
+; -10.382 ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.054     ; 4.172      ;
+; -10.188 ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 4.826      ;
+; -10.021 ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.515     ; 4.994      ;
+; -9.829  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.600     ; 5.271      ;
+; -9.793  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.623     ; 5.330      ;
+; -9.699  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.508     ; 5.309      ;
+; -9.671  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.513     ; 5.342      ;
+; -9.645  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.600     ; 5.455      ;
+; -9.342  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.623     ; 5.781      ;
+; -9.267  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.084     ; 5.317      ;
+; -9.265  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.053     ; 5.288      ;
+; -9.264  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.497     ; 5.733      ;
+; -9.260  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 5.323      ;
+; -9.254  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.081     ; 5.327      ;
+; -9.251  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 5.763      ;
+; -9.214  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.497     ; 5.783      ;
+; -9.158  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.623     ; 5.965      ;
+; -9.144  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.623     ; 5.979      ;
+; -9.091  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.054     ; 5.463      ;
+; -9.081  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.053     ; 5.472      ;
+; -9.072  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|row_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 5.511      ;
+; -8.972  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.497     ; 6.025      ;
+; -8.967  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.508     ; 6.041      ;
+; -8.940  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.515     ; 6.075      ;
+; -8.907  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.054     ; 5.647      ;
+; -8.819  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.084     ; 5.765      ;
+; -8.812  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 5.771      ;
+; -8.799  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.081     ; 5.782      ;
+; -8.783  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.508     ; 6.225      ;
+; -8.730  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.495     ; 6.265      ;
+; -8.715  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 6.299      ;
+; -8.683  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 6.331      ;
+; -8.676  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 6.338      ;
+; -8.667  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 6.347      ;
+; -8.635  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.084     ; 5.949      ;
+; -8.628  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 5.955      ;
+; -8.627  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|row_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 5.956      ;
+; -8.621  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.084     ; 5.963      ;
+; -8.619  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.333     ; 11.090     ;
+; -8.615  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.081     ; 5.966      ;
+; -8.611  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 5.972      ;
+; -8.601  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.081     ; 5.980      ;
+; -8.552  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 6.462      ;
+; -8.484  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.333     ; 11.225     ;
+; -8.443  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|row_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 6.140      ;
+; -8.425  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|row_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 6.158      ;
+; -8.349  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.327     ; 11.354     ;
+; -8.335  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.513     ; 6.678      ;
+; -8.317  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[7] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.314     ; 11.373     ;
+; -8.313  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 6.701      ;
+; -8.296  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.513     ; 6.717      ;
+; -8.119  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[0] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.333     ; 11.090     ;
+; -8.095  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.316     ; 11.597     ;
+; -8.023  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.515     ; 6.992      ;
+; -7.984  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.333     ; 11.225     ;
+; -7.955  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.600     ; 7.145      ;
+; -7.938  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.515     ; 7.077      ;
+; -7.902  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.623     ; 7.221      ;
+; -7.849  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.327     ; 11.354     ;
+; -7.817  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[7] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.314     ; 11.373     ;
+; -7.800  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.333     ; 11.909     ;
+; -7.771  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 7.243      ;
+; -7.768  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 7.246      ;
+; -7.735  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.332     ; 11.973     ;
+; -7.712  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.513     ; 7.301      ;
+; -7.674  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 7.340      ;
+; -7.666  ; state_display:display|DianZhen_Data[44]         ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.497     ; 7.331      ;
+; -7.659  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.497     ; 7.338      ;
+; -7.654  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|row_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.600     ; 7.446      ;
+; -7.647  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.508     ; 7.361      ;
+; -7.641  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 7.373      ;
+; -7.615  ; state_display:display|DianZhen_Data[44]         ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 7.399      ;
+; -7.598  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.513     ; 7.415      ;
+; -7.595  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[6] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.316     ; 11.597     ;
+; -7.556  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 7.458      ;
+; -7.513  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.508     ; 7.495      ;
+; -7.509  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.495     ; 7.486      ;
+; -7.507  ; state_display:display|num_reg[1]                ; state_display:display|Dianzhen_scan:d0|col_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.495     ; 7.488      ;
+; -7.470  ; state_display:display|Dianzhen_scan:d0|count[2] ; state_display:display|Dianzhen_scan:d0|col_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.495     ; 7.525      ;
+; -7.413  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; 0.000        ; 19.334     ; 12.297     ;
+; -7.404  ; state_display:display|Dianzhen_scan:d0|count[1] ; state_display:display|Dianzhen_scan:d0|col_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.508     ; 7.604      ;
+; -7.391  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.053     ; 7.162      ;
+; -7.390  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 7.193      ;
+; -7.379  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[0] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.084     ; 7.205      ;
+; -7.360  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.081     ; 7.221      ;
+; -7.300  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[5] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.333     ; 11.909     ;
+; -7.235  ; state_display:display|DianZhen_Data[10]         ; state_display:display|Dianzhen_scan:d0|col_sel[3] ; state_display:display|DianZhen_Data[10] ; state_display:display|DianZhen_Data[10] ; -0.500       ; 19.332     ; 11.973     ;
+; -7.219  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[7] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.054     ; 7.335      ;
+; -7.204  ; state_display:display|num_reg[0]                ; state_display:display|Dianzhen_scan:d0|col_sel[2] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.515     ; 7.811      ;
+; -7.191  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|row_sel[4] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.083     ; 7.392      ;
+; -7.167  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|row_sel[3] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.623     ; 7.956      ;
+; -7.090  ; state_display:display|num_reg[2]                ; state_display:display|Dianzhen_scan:d0|row_sel[6] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.053     ; 7.463      ;
+; -6.967  ; state_display:display|Dianzhen_scan:d0|count[0] ; state_display:display|Dianzhen_scan:d0|col_sel[1] ; sys_clk                                 ; state_display:display|DianZhen_Data[10] ; -0.500       ; 15.514     ; 8.047      ;
++---------+-------------------------------------------------+---------------------------------------------------+-----------------------------------------+-----------------------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'led_display:led_inst|sel_r[0]'                                                                                                                                                                        ;
++--------+---------------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; Slack  ; From Node                             ; To Node                           ; Launch Clock                                   ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; -4.006 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.099      ; 3.469      ;
+; -3.506 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.099      ; 3.469      ;
+; -3.249 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.015      ; 4.142      ;
+; -3.035 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.393      ; 4.734      ;
+; -2.862 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.392      ; 4.906      ;
+; -2.860 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.398      ; 4.914      ;
+; -2.835 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.299      ; 4.840      ;
+; -2.775 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.280      ; 4.881      ;
+; -2.749 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.015      ; 4.142      ;
+; -2.535 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.393      ; 4.734      ;
+; -2.448 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.398      ; 5.326      ;
+; -2.362 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.392      ; 4.906      ;
+; -2.360 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.398      ; 4.914      ;
+; -2.335 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.299      ; 4.840      ;
+; -2.275 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.280      ; 4.881      ;
+; -1.948 ; led_display:led_inst|sel_r[0]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.398      ; 5.326      ;
+; 0.540  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.833      ; 2.873      ;
+; 1.222  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.652      ; 3.374      ;
+; 1.908  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.568      ; 3.976      ;
+; 1.922  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.833      ; 4.255      ;
+; 2.439  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[6] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.568      ; 4.507      ;
+; 2.669  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.652      ; 4.821      ;
+; 2.695  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.945      ; 5.140      ;
+; 2.731  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.946      ; 5.177      ;
+; 2.853  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.946      ; 5.299      ;
+; 2.904  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.945      ; 5.349      ;
+; 2.906  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 5.357      ;
+; 2.931  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.852      ; 5.283      ;
+; 3.028  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 5.479      ;
+; 3.053  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.852      ; 5.405      ;
+; 3.095  ; led_display:led_inst|sel_r[1]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 5.546      ;
+; 3.318  ; led_display:led_inst|sel_r[2]         ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 5.769      ;
+; 3.467  ; state_display:display|ctr_signal      ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.196      ; 6.163      ;
+; 4.959  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 8.038      ;
+; 4.973  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.573      ; 8.046      ;
+; 5.128  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.196      ; 7.824      ;
+; 5.196  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.480      ; 8.176      ;
+; 5.298  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.461      ; 8.259      ;
+; 5.379  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 8.458      ;
+; 5.450  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.280      ; 8.230      ;
+; 5.506  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.196      ; 8.202      ;
+; 5.594  ; state_display:display|Vision_value[3] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.461      ; 8.555      ;
+; 5.616  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.196      ; 8.312      ;
+; 5.669  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[6] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.196      ; 8.365      ;
+; 5.736  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.573      ; 8.809      ;
+; 5.771  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 8.850      ;
+; 5.854  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.280      ; 8.634      ;
+; 5.925  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.573      ; 8.998      ;
+; 5.981  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[0] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.573      ; 9.054      ;
+; 5.995  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.280      ; 8.775      ;
+; 6.011  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.480      ; 8.991      ;
+; 6.018  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[1] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.280      ; 8.798      ;
+; 6.059  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.461      ; 9.020      ;
+; 6.074  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[2] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.461      ; 9.035      ;
+; 6.212  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 9.291      ;
+; 6.235  ; state_display:display|Vision_value[2] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 9.314      ;
+; 6.251  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.480      ; 9.231      ;
+; 6.325  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 9.404      ;
+; 6.385  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[5] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 9.464      ;
+; 6.449  ; state_display:display|Vision_value[1] ; led_display:led_inst|seg_led_r[3] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.480      ; 9.429      ;
+; 6.911  ; state_display:display|Vision_value[0] ; led_display:led_inst|seg_led_r[4] ; sys_clk                                        ; led_display:led_inst|sel_r[0] ; -0.500       ; 3.579      ; 9.990      ;
++--------+---------------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'led_display:led_inst|display_divider:u10|clk_p'                                                                                                                                                            ;
++--------+-------------------------------+-------------------------------+------------------------------------------------+------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                       ; Launch Clock                                   ; Latch Clock                                    ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-------------------------------+------------------------------------------------+------------------------------------------------+--------------+------------+------------+
+; -1.932 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; 0.000        ; 4.447      ; 3.112      ;
+; -1.511 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; 0.000        ; 4.447      ; 3.533      ;
+; -1.432 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; -0.500       ; 4.447      ; 3.112      ;
+; -1.011 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|display_divider:u10|clk_p ; -0.500       ; 4.447      ; 3.533      ;
+; 1.646  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|display_divider:u10|clk_p ; 0.000        ; 0.000      ; 1.867      ;
+; 2.207  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|display_divider:u10|clk_p ; 0.000        ; 0.000      ; 2.428      ;
+; 2.470  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|sel_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|display_divider:u10|clk_p ; 0.000        ; 0.000      ; 2.691      ;
++--------+-------------------------------+-------------------------------+------------------------------------------------+------------------------------------------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'state_display:display|display_divider:d10|clk_p'                                                                                                                                                                  ;
++-------+----------------------------------+----------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                        ; To Node                          ; Launch Clock                                    ; Latch Clock                                     ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------+----------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; 1.078 ; state_display:display|display_en ; state_display:display|display_en ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 1.299      ;
+; 1.078 ; state_display:display|temp[1]    ; state_display:display|temp[1]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 1.299      ;
+; 1.694 ; state_display:display|temp[1]    ; state_display:display|temp[0]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 1.915      ;
+; 1.700 ; state_display:display|temp[0]    ; state_display:display|temp[1]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 1.921      ;
+; 1.705 ; state_display:display|temp[1]    ; state_display:display|display_en ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 1.926      ;
+; 2.169 ; state_display:display|temp[0]    ; state_display:display|temp[0]    ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 2.390      ;
+; 2.180 ; state_display:display|temp[0]    ; state_display:display|display_en ; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.000      ; 2.401      ;
++-------+----------------------------------+----------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'sys_clk'                                                                                                                                                                       ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                          ; To Node                                            ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 1.411 ; key_debounce:debounce_u2|key_rst[0]                ; key_debounce:debounce_u2|key_rst_pre[0]            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.632      ;
+; 1.439 ; key_debounce:debounce_u2|key_sec[0]                ; key_debounce:debounce_u2|key_sec_pre[0]            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.660      ;
+; 1.669 ; state_display:display|state_current.STATE_IDLE     ; state_display:display|state_current.STATE_IDLE     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.890      ;
+; 1.678 ; state_display:display|random_num:r0|ran_num_reg[1] ; state_display:display|random_num:r0|ran_num_reg[1] ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.899      ;
+; 1.684 ; state_display:display|random_num:r0|ran_num_reg[1] ; state_display:display|random_num:r0|ran_num_reg[2] ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.905      ;
+; 1.685 ; state_display:display|random_num:r0|ran_num_reg[1] ; state_display:display|random_num:r0|ran_num[1]     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.906      ;
+; 1.697 ; state_display:display|random_num:r0|ran_num_reg[2] ; state_display:display|random_num:r0|ran_num[2]     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.918      ;
+; 1.712 ; state_display:display|direction[2]                 ; state_display:display|True                         ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.933      ;
+; 1.714 ; state_display:display|direction[2]                 ; state_display:display|False                        ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.935      ;
+; 1.717 ; state_display:display|count[0]                     ; state_display:display|count[0]                     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.938      ;
+; 1.748 ; key_debounce:debounce_u4|key_rst[0]                ; key_debounce:debounce_u4|key_rst_pre[0]            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.969      ;
+; 1.770 ; key_debounce:debounce_restart|key_rst[0]           ; key_debounce:debounce_restart|key_rst_pre[0]       ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 1.991      ;
+; 1.809 ; key_debounce:debounce_u3|key_rst[0]                ; key_debounce:debounce_u3|key_rst_pre[0]            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.030      ;
+; 1.816 ; key_debounce:debounce_u1|key_rst[0]                ; key_debounce:debounce_u1|key_rst_pre[0]            ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.037      ;
+; 1.920 ; state_display:display|state_current.STATE_FALSE    ; state_display:display|state_current.STATE_FALSE    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.141      ;
+; 1.944 ; key_debounce:debounce_u1|key_sec_pre[0]            ; state_display:display|direction[0]                 ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.165      ;
+; 1.955 ; state_display:display|random_num:r0|ran_num_reg[0] ; state_display:display|random_num:r0|ran_num_reg[0] ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.176      ;
+; 1.958 ; state_display:display|random_num:r0|ran_num_reg[0] ; state_display:display|random_num:r0|ran_num[0]     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.179      ;
+; 1.959 ; state_display:display|cnt_level[0]                 ; state_display:display|cnt_level[0]                 ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.180      ;
+; 2.005 ; state_display:display|Dianzhen_scan:d0|count[1]    ; state_display:display|Dianzhen_scan:d0|count[1]    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.226      ;
+; 2.017 ; state_display:display|Dianzhen_scan:d0|count[1]    ; state_display:display|Dianzhen_scan:d0|count[2]    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.238      ;
+; 2.107 ; key_debounce:debounce_u1|key_sec[0]                ; key_debounce:debounce_u1|key_sec[0]                ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.328      ;
+; 2.107 ; key_debounce:debounce_u4|key_sec[0]                ; key_debounce:debounce_u4|key_sec[0]                ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.328      ;
+; 2.116 ; key_debounce:debounce_restart|cnt[6]               ; key_debounce:debounce_restart|cnt[6]               ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_restart|cnt[16]              ; key_debounce:debounce_restart|cnt[16]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u4|cnt[6]                    ; key_debounce:debounce_u4|cnt[6]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u4|cnt[16]                   ; key_debounce:debounce_u4|cnt[16]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u3|cnt[6]                    ; key_debounce:debounce_u3|cnt[6]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u3|cnt[16]                   ; key_debounce:debounce_u3|cnt[16]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u2|cnt[6]                    ; key_debounce:debounce_u2|cnt[6]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u2|cnt[16]                   ; key_debounce:debounce_u2|cnt[16]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u1|cnt[6]                    ; key_debounce:debounce_u1|cnt[6]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.116 ; key_debounce:debounce_u1|cnt[16]                   ; key_debounce:debounce_u1|cnt[16]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.337      ;
+; 2.117 ; key_debounce:debounce_restart|cnt[13]              ; key_debounce:debounce_restart|cnt[13]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_restart|cnt[23]              ; key_debounce:debounce_restart|cnt[23]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u4|cnt[13]                   ; key_debounce:debounce_u4|cnt[13]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u4|cnt[23]                   ; key_debounce:debounce_u4|cnt[23]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u3|cnt[13]                   ; key_debounce:debounce_u3|cnt[13]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u3|cnt[23]                   ; key_debounce:debounce_u3|cnt[23]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u2|cnt[13]                   ; key_debounce:debounce_u2|cnt[13]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u2|cnt[23]                   ; key_debounce:debounce_u2|cnt[23]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u1|cnt[13]                   ; key_debounce:debounce_u1|cnt[13]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.117 ; key_debounce:debounce_u1|cnt[23]                   ; key_debounce:debounce_u1|cnt[23]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.338      ;
+; 2.120 ; led_display:led_inst|display_divider:u10|cnt_p[3]  ; led_display:led_inst|display_divider:u10|clk_p     ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.341      ;
+; 2.125 ; key_debounce:debounce_u3|cnt[26]                   ; key_debounce:debounce_u3|cnt[26]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.346      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[3]               ; key_debounce:debounce_restart|cnt[3]               ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[7]               ; key_debounce:debounce_restart|cnt[7]               ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[8]               ; key_debounce:debounce_restart|cnt[8]               ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[15]              ; key_debounce:debounce_restart|cnt[15]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[17]              ; key_debounce:debounce_restart|cnt[17]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[18]              ; key_debounce:debounce_restart|cnt[18]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_restart|cnt[25]              ; key_debounce:debounce_restart|cnt[25]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u4|cnt[7]                    ; key_debounce:debounce_u4|cnt[7]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u4|cnt[8]                    ; key_debounce:debounce_u4|cnt[8]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u4|cnt[15]                   ; key_debounce:debounce_u4|cnt[15]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u4|cnt[17]                   ; key_debounce:debounce_u4|cnt[17]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u4|cnt[18]                   ; key_debounce:debounce_u4|cnt[18]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u4|cnt[25]                   ; key_debounce:debounce_u4|cnt[25]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[3]                    ; key_debounce:debounce_u3|cnt[3]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[5]                    ; key_debounce:debounce_u3|cnt[5]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[7]                    ; key_debounce:debounce_u3|cnt[7]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[8]                    ; key_debounce:debounce_u3|cnt[8]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[15]                   ; key_debounce:debounce_u3|cnt[15]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[17]                   ; key_debounce:debounce_u3|cnt[17]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[18]                   ; key_debounce:debounce_u3|cnt[18]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u3|cnt[25]                   ; key_debounce:debounce_u3|cnt[25]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[7]                    ; key_debounce:debounce_u2|cnt[7]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[8]                    ; key_debounce:debounce_u2|cnt[8]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[15]                   ; key_debounce:debounce_u2|cnt[15]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[17]                   ; key_debounce:debounce_u2|cnt[17]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[18]                   ; key_debounce:debounce_u2|cnt[18]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[25]                   ; key_debounce:debounce_u2|cnt[25]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u2|cnt[26]                   ; key_debounce:debounce_u2|cnt[26]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[3]                    ; key_debounce:debounce_u1|cnt[3]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[5]                    ; key_debounce:debounce_u1|cnt[5]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[7]                    ; key_debounce:debounce_u1|cnt[7]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[8]                    ; key_debounce:debounce_u1|cnt[8]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[15]                   ; key_debounce:debounce_u1|cnt[15]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[17]                   ; key_debounce:debounce_u1|cnt[17]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[18]                   ; key_debounce:debounce_u1|cnt[18]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.126 ; key_debounce:debounce_u1|cnt[25]                   ; key_debounce:debounce_u1|cnt[25]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.347      ;
+; 2.127 ; state_display:display|Dianzhen_scan:d0|count[2]    ; state_display:display|Dianzhen_scan:d0|count[2]    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.348      ;
+; 2.127 ; key_debounce:debounce_restart|cnt[5]               ; key_debounce:debounce_restart|cnt[5]               ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.348      ;
+; 2.133 ; key_debounce:debounce_u4|cnt[26]                   ; key_debounce:debounce_u4|cnt[26]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.354      ;
+; 2.134 ; key_debounce:debounce_u4|cnt[3]                    ; key_debounce:debounce_u4|cnt[3]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.355      ;
+; 2.134 ; key_debounce:debounce_u2|cnt[3]                    ; key_debounce:debounce_u2|cnt[3]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.355      ;
+; 2.135 ; key_debounce:debounce_u4|cnt[5]                    ; key_debounce:debounce_u4|cnt[5]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.356      ;
+; 2.135 ; key_debounce:debounce_u4|cnt[28]                   ; key_debounce:debounce_u4|cnt[28]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.356      ;
+; 2.135 ; key_debounce:debounce_u2|cnt[5]                    ; key_debounce:debounce_u2|cnt[5]                    ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.356      ;
+; 2.140 ; key_debounce:debounce_restart|cnt[26]              ; key_debounce:debounce_restart|cnt[26]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.361      ;
+; 2.141 ; key_debounce:debounce_u1|cnt[26]                   ; key_debounce:debounce_u1|cnt[26]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.362      ;
+; 2.144 ; key_debounce:debounce_u4|cnt[27]                   ; key_debounce:debounce_u4|cnt[27]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.365      ;
+; 2.151 ; key_debounce:debounce_restart|cnt[28]              ; key_debounce:debounce_restart|cnt[28]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.151 ; key_debounce:debounce_u3|cnt[27]                   ; key_debounce:debounce_u3|cnt[27]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.151 ; key_debounce:debounce_u3|cnt[28]                   ; key_debounce:debounce_u3|cnt[28]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.151 ; key_debounce:debounce_u2|cnt[28]                   ; key_debounce:debounce_u2|cnt[28]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.151 ; key_debounce:debounce_u1|cnt[28]                   ; key_debounce:debounce_u1|cnt[28]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.372      ;
+; 2.152 ; key_debounce:debounce_restart|cnt[27]              ; key_debounce:debounce_restart|cnt[27]              ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.373      ;
+; 2.152 ; key_debounce:debounce_u2|cnt[27]                   ; key_debounce:debounce_u2|cnt[27]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.373      ;
+; 2.152 ; key_debounce:debounce_u1|cnt[27]                   ; key_debounce:debounce_u1|cnt[27]                   ; sys_clk      ; sys_clk     ; 0.000        ; 0.000      ; 2.373      ;
++-------+----------------------------------------------------+----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'led_display:led_inst|sel_r[0]'                                                                                                                                                            ;
++--------+-------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                           ; Launch Clock                                   ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; -5.548 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 4.539      ;
+; -4.987 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 3.978      ;
+; -4.559 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.946      ; 4.566      ;
+; -3.998 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.946      ; 4.005      ;
+; -3.542 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.833      ; 4.065      ;
+; -3.443 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.945      ; 4.535      ;
+; -3.418 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 4.517      ;
+; -3.209 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.652      ; 4.220      ;
+; -2.981 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.833      ; 3.504      ;
+; -2.882 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.945      ; 3.974      ;
+; -2.873 ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.852      ; 3.882      ;
+; -2.857 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.951      ; 3.956      ;
+; -2.648 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.652      ; 3.659      ;
+; -2.312 ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; 0.500        ; 2.852      ; 3.321      ;
+; -1.409 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.398      ; 5.223      ;
+; -0.909 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.398      ; 5.223      ;
+; -0.420 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.393      ; 5.250      ;
+; 0.080  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.393      ; 5.250      ;
+; 0.597  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.280      ; 4.749      ;
+; 0.696  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.392      ; 5.219      ;
+; 0.721  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.398      ; 5.201      ;
+; 0.930  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.099      ; 4.904      ;
+; 1.097  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.280      ; 4.749      ;
+; 1.196  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.392      ; 5.219      ;
+; 1.221  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.398      ; 5.201      ;
+; 1.266  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.500        ; 7.299      ; 4.566      ;
+; 1.430  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.099      ; 4.904      ;
+; 1.766  ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 1.000        ; 7.299      ; 4.566      ;
++--------+-------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery: 'state_display:display|display_divider:d10|clk_p'                                                                                                                                        ;
++--------+----------------------------------------------+----------------------------------+--------------+-------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                    ; To Node                          ; Launch Clock ; Latch Clock                                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------+----------------------------------+--------------+-------------------------------------------------+--------------+------------+------------+
+; -3.039 ; key_debounce:debounce_restart|key_sec[0]     ; state_display:display|display_en ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.422      ; 4.128      ;
+; -3.039 ; key_debounce:debounce_restart|key_sec[0]     ; state_display:display|temp[1]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.422      ; 4.128      ;
+; -3.039 ; key_debounce:debounce_restart|key_sec[0]     ; state_display:display|temp[0]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.422      ; 4.128      ;
+; -2.494 ; key_debounce:debounce_restart|key_sec_pre[0] ; state_display:display|display_en ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.422      ; 3.583      ;
+; -2.494 ; key_debounce:debounce_restart|key_sec_pre[0] ; state_display:display|temp[1]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.422      ; 3.583      ;
+; -2.494 ; key_debounce:debounce_restart|key_sec_pre[0] ; state_display:display|temp[0]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 1.000        ; 0.422      ; 3.583      ;
++--------+----------------------------------------------+----------------------------------+--------------+-------------------------------------------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'led_display:led_inst|sel_r[0]'                                                                                                                                                             ;
++--------+-------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; Slack  ; From Node                     ; To Node                           ; Launch Clock                                   ; Latch Clock                   ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+; -3.109 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.299      ; 4.566      ;
+; -2.907 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.280      ; 4.749      ;
+; -2.609 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.299      ; 4.566      ;
+; -2.573 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.398      ; 5.201      ;
+; -2.571 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.099      ; 4.904      ;
+; -2.551 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.398      ; 5.223      ;
+; -2.549 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.392      ; 5.219      ;
+; -2.519 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; 0.000        ; 7.393      ; 5.250      ;
+; -2.407 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.280      ; 4.749      ;
+; -2.073 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.398      ; 5.201      ;
+; -2.071 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.099      ; 4.904      ;
+; -2.051 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.398      ; 5.223      ;
+; -2.049 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.392      ; 5.219      ;
+; -2.019 ; led_display:led_inst|sel_r[0] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0] ; -0.500       ; 7.393      ; 5.250      ;
+; 0.969  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.852      ; 3.321      ;
+; 1.171  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.833      ; 3.504      ;
+; 1.505  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 3.956      ;
+; 1.507  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.652      ; 3.659      ;
+; 1.527  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 3.978      ;
+; 1.529  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.945      ; 3.974      ;
+; 1.530  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[3] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.852      ; 3.882      ;
+; 1.559  ; led_display:led_inst|sel_r[2] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.946      ; 4.005      ;
+; 1.732  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[2] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.833      ; 4.065      ;
+; 2.066  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[4] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 4.517      ;
+; 2.068  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[1] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.652      ; 4.220      ;
+; 2.088  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[5] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.951      ; 4.539      ;
+; 2.090  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[0] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.945      ; 4.535      ;
+; 2.120  ; led_display:led_inst|sel_r[1] ; led_display:led_inst|seg_led_r[7] ; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0] ; -0.500       ; 2.946      ; 4.566      ;
++--------+-------------------------------+-----------------------------------+------------------------------------------------+-------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal: 'state_display:display|display_divider:d10|clk_p'                                                                                                                                        ;
++-------+----------------------------------------------+----------------------------------+--------------+-------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                                    ; To Node                          ; Launch Clock ; Latch Clock                                     ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------+----------------------------------+--------------+-------------------------------------------------+--------------+------------+------------+
+; 2.940 ; key_debounce:debounce_restart|key_sec_pre[0] ; state_display:display|display_en ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.422      ; 3.583      ;
+; 2.940 ; key_debounce:debounce_restart|key_sec_pre[0] ; state_display:display|temp[1]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.422      ; 3.583      ;
+; 2.940 ; key_debounce:debounce_restart|key_sec_pre[0] ; state_display:display|temp[0]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.422      ; 3.583      ;
+; 3.485 ; key_debounce:debounce_restart|key_sec[0]     ; state_display:display|display_en ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.422      ; 4.128      ;
+; 3.485 ; key_debounce:debounce_restart|key_sec[0]     ; state_display:display|temp[1]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.422      ; 4.128      ;
+; 3.485 ; key_debounce:debounce_restart|key_sec[0]     ; state_display:display|temp[0]    ; sys_clk      ; state_display:display|display_divider:d10|clk_p ; 0.000        ; 0.422      ; 4.128      ;
++-------+----------------------------------------------+----------------------------------+--------------+-------------------------------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                               ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                      ; To Clock                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; led_display:led_inst|display_divider:u10|clk_p  ; led_display:led_inst|display_divider:u10|clk_p  ; 3        ; 0        ; 0        ; 0        ;
+; led_display:led_inst|sel_r[0]                   ; led_display:led_inst|display_divider:u10|clk_p  ; 2        ; 2        ; 0        ; 0        ;
+; led_display:led_inst|display_divider:u10|clk_p  ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 75       ; 0        ;
+; led_display:led_inst|sel_r[0]                   ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 38       ; 38       ;
+; sys_clk                                         ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 347      ; 0        ;
+; state_display:display|DianZhen_Data[10]         ; state_display:display|DianZhen_Data[10]         ; 0        ; 0        ; 345      ; 345      ;
+; sys_clk                                         ; state_display:display|DianZhen_Data[10]         ; 0        ; 0        ; 13403    ; 0        ;
+; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 7        ; 0        ; 0        ; 0        ;
+; state_display:display|display_divider:d10|clk_p ; sys_clk                                         ; 102      ; 0        ; 0        ; 0        ;
+; sys_clk                                         ; sys_clk                                         ; 10664    ; 0        ; 0        ; 0        ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                      ; To Clock                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; led_display:led_inst|display_divider:u10|clk_p  ; led_display:led_inst|display_divider:u10|clk_p  ; 3        ; 0        ; 0        ; 0        ;
+; led_display:led_inst|sel_r[0]                   ; led_display:led_inst|display_divider:u10|clk_p  ; 2        ; 2        ; 0        ; 0        ;
+; led_display:led_inst|display_divider:u10|clk_p  ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 75       ; 0        ;
+; led_display:led_inst|sel_r[0]                   ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 38       ; 38       ;
+; sys_clk                                         ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 347      ; 0        ;
+; state_display:display|DianZhen_Data[10]         ; state_display:display|DianZhen_Data[10]         ; 0        ; 0        ; 345      ; 345      ;
+; sys_clk                                         ; state_display:display|DianZhen_Data[10]         ; 0        ; 0        ; 13403    ; 0        ;
+; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; 7        ; 0        ; 0        ; 0        ;
+; state_display:display|display_divider:d10|clk_p ; sys_clk                                         ; 102      ; 0        ; 0        ; 0        ;
+; sys_clk                                         ; sys_clk                                         ; 10664    ; 0        ; 0        ; 0        ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Recovery Transfers                                                                                                                           ;
++------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                     ; To Clock                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 14       ; 0        ;
+; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 7        ; 7        ;
+; sys_clk                                        ; state_display:display|display_divider:d10|clk_p ; 6        ; 0        ; 0        ; 0        ;
++------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removal Transfers                                                                                                                            ;
++------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                     ; To Clock                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; led_display:led_inst|display_divider:u10|clk_p ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 14       ; 0        ;
+; led_display:led_inst|sel_r[0]                  ; led_display:led_inst|sel_r[0]                   ; 0        ; 0        ; 7        ; 7        ;
+; sys_clk                                        ; state_display:display|display_divider:d10|clk_p ; 6        ; 0        ; 0        ; 0        ;
++------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 322   ; 322  ;
+; Unconstrained Output Ports      ; 28    ; 28   ;
+; Unconstrained Output Port Paths ; 28    ; 28   ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                                                   ;
++-------------------------------------------------+-------------------------------------------------+------+-------------+
+; Target                                          ; Clock                                           ; Type ; Status      ;
++-------------------------------------------------+-------------------------------------------------+------+-------------+
+; led_display:led_inst|display_divider:u10|clk_p  ; led_display:led_inst|display_divider:u10|clk_p  ; Base ; Constrained ;
+; led_display:led_inst|sel_r[0]                   ; led_display:led_inst|sel_r[0]                   ; Base ; Constrained ;
+; state_display:display|DianZhen_Data[10]         ; state_display:display|DianZhen_Data[10]         ; Base ; Constrained ;
+; state_display:display|display_divider:d10|clk_p ; state_display:display|display_divider:d10|clk_p ; Base ; Constrained ;
+; sys_clk                                         ; sys_clk                                         ; Base ; Constrained ;
++-------------------------------------------------+-------------------------------------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; KeyDown    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyLeft    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyRESTART ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyRight   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyUp      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sys_rst    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; col_pin[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_sel[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_sel[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_sel[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sss         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; KeyDown    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyLeft    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyRESTART ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyRight   ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; KeyUp      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sys_rst    ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; col_pin[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; col_pin[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; row_pin[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[3]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[4]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[5]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[6]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_led[7]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_sel[0]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_sel[1]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_sel[2]  ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; sss         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Sat Dec 23 10:04:25 2023
+Info: Command: quartus_sta Vision_Test -c Vision_Test
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Warning (335093): The Timing Analyzer is analyzing 24 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'Vision_Test.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name state_display:display|display_divider:d10|clk_p state_display:display|display_divider:d10|clk_p
+    Info (332105): create_clock -period 1.000 -name state_display:display|DianZhen_Data[10] state_display:display|DianZhen_Data[10]
+    Info (332105): create_clock -period 1.000 -name led_display:led_inst|sel_r[0] led_display:led_inst|sel_r[0]
+    Info (332105): create_clock -period 1.000 -name led_display:led_inst|display_divider:u10|clk_p led_display:led_inst|display_divider:u10|clk_p
+    Info (332105): create_clock -period 1.000 -name sys_clk sys_clk
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -15.004
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -15.004             -96.645 led_display:led_inst|sel_r[0] 
+    Info (332119):   -11.585           -2012.438 sys_clk 
+    Info (332119):    -8.878             -57.536 state_display:display|DianZhen_Data[10] 
+    Info (332119):    -2.024              -3.785 led_display:led_inst|display_divider:u10|clk_p 
+    Info (332119):    -1.734              -4.711 state_display:display|display_divider:d10|clk_p 
+Info (332146): Worst-case hold slack is -11.281
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -11.281            -155.038 state_display:display|DianZhen_Data[10] 
+    Info (332119):    -4.006             -24.070 led_display:led_inst|sel_r[0] 
+    Info (332119):    -1.932              -3.443 led_display:led_inst|display_divider:u10|clk_p 
+    Info (332119):     1.078               0.000 state_display:display|display_divider:d10|clk_p 
+    Info (332119):     1.411               0.000 sys_clk 
+Info (332146): Worst-case recovery slack is -5.548
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -5.548             -26.592 led_display:led_inst|sel_r[0] 
+    Info (332119):    -3.039              -9.117 state_display:display|display_divider:d10|clk_p 
+Info (332146): Worst-case removal slack is -3.109
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.109             -18.779 led_display:led_inst|sel_r[0] 
+    Info (332119):     2.940               0.000 state_display:display|display_divider:d10|clk_p 
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 sys_clk 
+    Info (332119):    -2.261            -161.890 state_display:display|DianZhen_Data[10] 
+    Info (332119):     0.234               0.000 led_display:led_inst|display_divider:u10|clk_p 
+    Info (332119):     0.234               0.000 state_display:display|display_divider:d10|clk_p 
+    Info (332119):     0.500               0.000 led_display:led_inst|sel_r[0] 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4691 megabytes
+    Info: Processing ended: Sat Dec 23 10:04:26 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:00
+
+

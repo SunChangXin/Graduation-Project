@@ -1,0 +1,8 @@
+
+State Machine - |Car_Led|current_state
+Name current_state.S4 current_state.S2 current_state.S1 current_state.S3 current_state.START 
+current_state.START 0 0 0 0 0 
+current_state.S3 0 0 0 1 1 
+current_state.S1 0 0 1 0 1 
+current_state.S2 0 1 0 0 1 
+current_state.S4 1 0 0 0 1 

@@ -1,0 +1,46 @@
+.\objects\main.o: User\main.c
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_compiler.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\system_stm32f10x.h
+.\objects\main.o: .\User\stm32f10x_conf.h
+.\objects\main.o: .\Library\stm32f10x_adc.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include\stm32f10x.h
+.\objects\main.o: .\Library\stm32f10x_bkp.h
+.\objects\main.o: .\Library\stm32f10x_can.h
+.\objects\main.o: .\Library\stm32f10x_cec.h
+.\objects\main.o: .\Library\stm32f10x_crc.h
+.\objects\main.o: .\Library\stm32f10x_dac.h
+.\objects\main.o: .\Library\stm32f10x_dbgmcu.h
+.\objects\main.o: .\Library\stm32f10x_dma.h
+.\objects\main.o: .\Library\stm32f10x_exti.h
+.\objects\main.o: .\Library\stm32f10x_flash.h
+.\objects\main.o: .\Library\stm32f10x_fsmc.h
+.\objects\main.o: .\Library\stm32f10x_gpio.h
+.\objects\main.o: .\Library\stm32f10x_i2c.h
+.\objects\main.o: .\Library\stm32f10x_iwdg.h
+.\objects\main.o: .\Library\stm32f10x_pwr.h
+.\objects\main.o: .\Library\stm32f10x_rcc.h
+.\objects\main.o: .\Library\stm32f10x_rtc.h
+.\objects\main.o: .\Library\stm32f10x_sdio.h
+.\objects\main.o: .\Library\stm32f10x_spi.h
+.\objects\main.o: .\Library\stm32f10x_tim.h
+.\objects\main.o: .\Library\stm32f10x_usart.h
+.\objects\main.o: .\Library\stm32f10x_wwdg.h
+.\objects\main.o: .\Library\misc.h
+.\objects\main.o: .\System\Delay.h
+.\objects\main.o: .\System\sys.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: .\Hardware\OLED.h
+.\objects\main.o: .\Hardware\stm32_config.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\ARMCC\Bin\..\include\math.h
+.\objects\main.o: .\Hardware\Serial.h
+.\objects\main.o: .\Hardware\AD9833.h
+.\objects\main.o: .\Hardware\MyFIR.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_math.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm3.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_const_structs.h
+.\objects\main.o: F:\STM32\Keil5 MDK\ARM\PACK\ARM\CMSIS\5.0.1\CMSIS\Include\arm_common_tables.h

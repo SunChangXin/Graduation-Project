@@ -1,0 +1,18 @@
+Fitter Status : Successful - Wed Dec  6 20:02:14 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : debounce
+Top-level Entity Name : debounce
+Family : MAX 10
+Device : 10M02SCM153I7G
+Timing Models : Final
+Total logic elements : 29 / 2,304 ( 1 % )
+    Total combinational functions : 29 / 2,304 ( 1 % )
+    Dedicated logic registers : 22 / 2,304 ( < 1 % )
+Total registers : 22
+Total pins : 4 / 112 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 0 / 110,592 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 32 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0

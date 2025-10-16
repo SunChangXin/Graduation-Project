@@ -1,0 +1,39 @@
+module D_YiMa(sw,led);
+  
+  input [3:0] sw;
+
+  
+  wire output_led;
+  
+  
+  
+  
+  
+  
+  output reg [8:0] led;
+  
+  
+  
+  
+  
+
+  
+  assign led <= {3'b000,output_led};
+  
+
+  
+  
+  D_YM38 u1 (
+             .Ai(sw),
+				 .E1(1),
+				 .E2_low(0),
+				 .E3_low(0),
+				 .ledx(output_led)
+             );                                          
+                     
+  
+  
+  
+
+
+endmodule

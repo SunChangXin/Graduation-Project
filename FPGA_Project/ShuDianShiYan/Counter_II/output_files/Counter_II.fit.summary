@@ -1,0 +1,11 @@
+Fitter Status : Successful - Thu Nov 16 12:15:31 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : Counter_II
+Top-level Entity Name : Counter_II
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 115 / 1,270 ( 9 % )
+Total pins : 25 / 116 ( 22 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

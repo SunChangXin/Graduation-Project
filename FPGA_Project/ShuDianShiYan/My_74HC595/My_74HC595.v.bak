@@ -1,0 +1,31 @@
+module My_74HC595();
+	
+	
+	input clk;
+	input rst;
+	input SI;	
+	input OE;
+	
+	
+	output [7:0] out;  // 8位输出 连接到小脚丫七位数码管
+	  
+	
+	reg DS = 1'b0;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+endmodule

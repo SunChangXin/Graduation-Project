@@ -1,0 +1,628 @@
+Analysis & Synthesis report for display
+Thu Dec 14 08:44:31 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |display|display_state:display_state_inst|state_current
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: display_state:display_state_inst|seg_scan:s1
+ 15. Parameter Settings for User Entity Instance: seg_led:seg_led_inst|display_divider:u10
+ 16. Parameter Settings for User Entity Instance: key_debounce:key_debounce_restart
+ 17. Parameter Settings for User Entity Instance: key_debounce:key_debounce_u1
+ 18. Parameter Settings for User Entity Instance: key_debounce:key_debounce_u2
+ 19. Parameter Settings for User Entity Instance: key_debounce:key_debounce_u3
+ 20. Parameter Settings for User Entity Instance: key_debounce:key_debounce_u4
+ 21. Parameter Settings for Inferred Entity Instance: display_state:display_state_inst|lpm_divide:Mod0
+ 22. Parameter Settings for Inferred Entity Instance: display_state:display_state_inst|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: display_state:display_state_inst|lpm_divide:Mod1
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                 ;
++-----------------------------+------------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Thu Dec 14 08:44:31 2023          ;
+; Quartus Prime Version       ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name               ; display                                        ;
+; Top-level Entity Name       ; display                                        ;
+; Family                      ; MAX II                                         ;
+; Total logic elements        ; 666                                            ;
+; Total pins                  ; 39                                             ;
+; Total virtual pins          ; 0                                              ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                                  ;
++-----------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EPM1270T144C5      ;                    ;
+; Top-level entity name                                            ; display            ; display            ;
+; Family name                                                      ; MAX II             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; src/display_divider.v            ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/display_divider.v      ;         ;
+; src/random_num.v                 ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/random_num.v           ;         ;
+; src/seg_scan.v                   ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/seg_scan.v             ;         ;
+; src/key_debouce.v                ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/key_debouce.v          ;         ;
+; src/display_state.v              ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/display_state.v        ;         ;
+; src/display.v                    ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/display.v              ;         ;
+; src/seg_led.v                    ; yes             ; User Verilog HDL File        ; D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v              ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/lpm_divide.tdf            ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/abs_divider.inc           ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/sign_div_unsign.inc       ;         ;
+; aglobal221.inc                   ; yes             ; Megafunction                 ; d:/quartus/quartus/libraries/megafunctions/aglobal221.inc            ;         ;
+; db/lpm_divide_tnl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/lpm_divide_tnl.tdf      ;         ;
+; db/sign_div_unsign_bkh.tdf       ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/sign_div_unsign_bkh.tdf ;         ;
+; db/alt_u_div_hie.tdf             ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/alt_u_div_hie.tdf       ;         ;
+; db/add_sub_e7c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/add_sub_e7c.tdf         ;         ;
+; db/add_sub_f7c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/add_sub_f7c.tdf         ;         ;
+; db/add_sub_g7c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/add_sub_g7c.tdf         ;         ;
+; db/add_sub_h7c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/add_sub_h7c.tdf         ;         ;
+; db/add_sub_i7c.tdf               ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/add_sub_i7c.tdf         ;         ;
+; db/lpm_divide_qvl.tdf            ; yes             ; Auto-Generated Megafunction  ; D:/ShuDianShiYan/display_sight_test_final/db/lpm_divide_qvl.tdf      ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Total logic elements                        ; 666     ;
+;     -- Combinational with no register       ; 363     ;
+;     -- Register only                        ; 79      ;
+;     -- Combinational with a register        ; 224     ;
+;                                             ;         ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 235     ;
+;     -- 3 input functions                    ; 72      ;
+;     -- 2 input functions                    ; 264     ;
+;     -- 1 input functions                    ; 16      ;
+;     -- 0 input functions                    ; 0       ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 440     ;
+;     -- arithmetic mode                      ; 226     ;
+;     -- qfbk mode                            ; 0       ;
+;     -- register cascade mode                ; 0       ;
+;     -- synchronous clear/load mode          ; 160     ;
+;     -- asynchronous clear/load mode         ; 271     ;
+;                                             ;         ;
+; Total registers                             ; 303     ;
+; Total logic cells in carry chains           ; 237     ;
+; I/O pins                                    ; 39      ;
+; Maximum fan-out node                        ; sys_clk ;
+; Maximum fan-out                             ; 300     ;
+; Total fan-out                               ; 2551    ;
+; Average fan-out                             ; 3.62    ;
++---------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                   ;
++-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                                                                                                                             ; Entity Name         ; Library Name ;
++-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |display                                  ; 666 (0)     ; 303          ; 0          ; 39   ; 0            ; 363 (0)      ; 79 (0)            ; 224 (0)          ; 237 (0)         ; 0 (0)      ; |display                                                                                                                                                        ; display             ; work         ;
+;    |display_state:display_state_inst|     ; 322 (125)   ; 88           ; 0          ; 0    ; 0            ; 234 (78)     ; 34 (6)            ; 54 (41)          ; 46 (4)          ; 0 (0)      ; |display|display_state:display_state_inst                                                                                                                       ; display_state       ; work         ;
+;       |lpm_divide:Div0|                   ; 4 (0)       ; 0            ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 4 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Div0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_qvl:auto_generated|  ; 4 (0)       ; 0            ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 4 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Div0|lpm_divide_qvl:auto_generated                                                                         ; lpm_divide_qvl      ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 4 (0)       ; 0            ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 4 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Div0|lpm_divide_qvl:auto_generated|sign_div_unsign_bkh:divider                                             ; sign_div_unsign_bkh ; work         ;
+;                |alt_u_div_hie:divider|    ; 4 (0)       ; 0            ; 0          ; 0    ; 0            ; 4 (0)        ; 0 (0)             ; 0 (0)            ; 4 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Div0|lpm_divide_qvl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_hie:divider                       ; alt_u_div_hie       ; work         ;
+;                   |add_sub_i7c:add_sub_7| ; 4 (4)       ; 0            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 0 (0)            ; 4 (4)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Div0|lpm_divide_qvl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_hie:divider|add_sub_i7c:add_sub_7 ; add_sub_i7c         ; work         ;
+;       |lpm_divide:Mod0|                   ; 9 (0)       ; 0            ; 0          ; 0    ; 0            ; 9 (0)        ; 0 (0)             ; 0 (0)            ; 6 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Mod0                                                                                                       ; lpm_divide          ; work         ;
+;          |lpm_divide_tnl:auto_generated|  ; 9 (0)       ; 0            ; 0          ; 0    ; 0            ; 9 (0)        ; 0 (0)             ; 0 (0)            ; 6 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Mod0|lpm_divide_tnl:auto_generated                                                                         ; lpm_divide_tnl      ; work         ;
+;             |sign_div_unsign_bkh:divider| ; 9 (0)       ; 0            ; 0          ; 0    ; 0            ; 9 (0)        ; 0 (0)             ; 0 (0)            ; 6 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Mod0|lpm_divide_tnl:auto_generated|sign_div_unsign_bkh:divider                                             ; sign_div_unsign_bkh ; work         ;
+;                |alt_u_div_hie:divider|    ; 9 (3)       ; 0            ; 0          ; 0    ; 0            ; 9 (3)        ; 0 (0)             ; 0 (0)            ; 6 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Mod0|lpm_divide_tnl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_hie:divider                       ; alt_u_div_hie       ; work         ;
+;                   |add_sub_i7c:add_sub_7| ; 6 (6)       ; 0            ; 0          ; 0    ; 0            ; 6 (6)        ; 0 (0)             ; 0 (0)            ; 6 (6)           ; 0 (0)      ; |display|display_state:display_state_inst|lpm_divide:Mod0|lpm_divide_tnl:auto_generated|sign_div_unsign_bkh:divider|alt_u_div_hie:divider|add_sub_i7c:add_sub_7 ; add_sub_i7c         ; work         ;
+;       |random_num:r1|                     ; 7 (7)       ; 6            ; 0          ; 0    ; 0            ; 1 (1)        ; 2 (2)             ; 4 (4)            ; 0 (0)           ; 0 (0)      ; |display|display_state:display_state_inst|random_num:r1                                                                                                         ; random_num          ; work         ;
+;       |seg_scan:s1|                       ; 177 (177)   ; 35           ; 0          ; 0    ; 0            ; 142 (142)    ; 26 (26)           ; 9 (9)            ; 32 (32)         ; 0 (0)      ; |display|display_state:display_state_inst|seg_scan:s1                                                                                                           ; seg_scan            ; work         ;
+;    |key_debounce:key_debounce_restart|    ; 48 (48)     ; 36           ; 0          ; 0    ; 0            ; 12 (12)      ; 3 (3)             ; 33 (33)          ; 32 (32)         ; 0 (0)      ; |display|key_debounce:key_debounce_restart                                                                                                                      ; key_debounce        ; work         ;
+;    |key_debounce:key_debounce_u1|         ; 47 (47)     ; 36           ; 0          ; 0    ; 0            ; 11 (11)      ; 3 (3)             ; 33 (33)          ; 32 (32)         ; 0 (0)      ; |display|key_debounce:key_debounce_u1                                                                                                                           ; key_debounce        ; work         ;
+;    |key_debounce:key_debounce_u2|         ; 47 (47)     ; 36           ; 0          ; 0    ; 0            ; 11 (11)      ; 3 (3)             ; 33 (33)          ; 32 (32)         ; 0 (0)      ; |display|key_debounce:key_debounce_u2                                                                                                                           ; key_debounce        ; work         ;
+;    |key_debounce:key_debounce_u3|         ; 47 (47)     ; 36           ; 0          ; 0    ; 0            ; 11 (11)      ; 3 (3)             ; 33 (33)          ; 32 (32)         ; 0 (0)      ; |display|key_debounce:key_debounce_u3                                                                                                                           ; key_debounce        ; work         ;
+;    |key_debounce:key_debounce_u4|         ; 47 (47)     ; 36           ; 0          ; 0    ; 0            ; 11 (11)      ; 3 (3)             ; 33 (33)          ; 32 (32)         ; 0 (0)      ; |display|key_debounce:key_debounce_u4                                                                                                                           ; key_debounce        ; work         ;
+;    |seg_led:seg_led_inst|                 ; 108 (34)    ; 35           ; 0          ; 0    ; 0            ; 73 (31)      ; 30 (1)            ; 5 (2)            ; 31 (0)          ; 0 (0)      ; |display|seg_led:seg_led_inst                                                                                                                                   ; seg_led             ; work         ;
+;       |display_divider:u10|               ; 74 (74)     ; 32           ; 0          ; 0    ; 0            ; 42 (42)      ; 29 (29)           ; 3 (3)            ; 31 (31)         ; 0 (0)      ; |display|seg_led:seg_led_inst|display_divider:u10                                                                                                               ; display_divider     ; work         ;
++-------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------+
+; State Machine - |display|display_state:display_state_inst|state_current                                          ;
++-----------------------------+---------------------------+-----------------------------+--------------------------+
+; Name                        ; state_current.STATE_FALSE ; state_current.START_DISPLAY ; state_current.STATE_IDLE ;
++-----------------------------+---------------------------+-----------------------------+--------------------------+
+; state_current.STATE_IDLE    ; 0                         ; 0                           ; 0                        ;
+; state_current.START_DISPLAY ; 0                         ; 1                           ; 1                        ;
+; state_current.STATE_FALSE   ; 1                         ; 0                           ; 1                        ;
++-----------------------------+---------------------------+-----------------------------+--------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                             ;
++----------------------------------------------------+-----------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal               ; Free of Timing Hazards ;
++----------------------------------------------------+-----------------------------------+------------------------+
+; seg_led:seg_led_inst|seg_led_r[0]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[1]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[2]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[3]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[4]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[5]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[6]                  ; seg_led:seg_led_inst|seg_led_r[6] ; yes                    ;
+; seg_led:seg_led_inst|seg_led_r[7]                  ; seg_led:seg_led_inst|seg_led_r[7] ; yes                    ;
+; Number of user-specified and inferred latches = 8  ;                                   ;                        ;
++----------------------------------------------------+-----------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                ;
++--------------------------------------------------------------------------+------------------------------------------------------------------------+
+; Register name                                                            ; Reason for Removal                                                     ;
++--------------------------------------------------------------------------+------------------------------------------------------------------------+
+; display_state:display_state_inst|DianZhen_Data[17,26,34,41]              ; Stuck at GND due to stuck port data_in                                 ;
+; display_state:display_state_inst|Vision_value[4..7]                      ; Stuck at GND due to stuck port data_in                                 ;
+; display_state:display_state_inst|DianZhen_Data[0,7,56]                   ; Merged with display_state:display_state_inst|DianZhen_Data[63]         ;
+; display_state:display_state_inst|DianZhen_Data[15,23,31,39,47,55,57..61] ; Merged with display_state:display_state_inst|DianZhen_Data[62]         ;
+; display_state:display_state_inst|DianZhen_Data[22,46,50]                 ; Merged with display_state:display_state_inst|DianZhen_Data[53]         ;
+; display_state:display_state_inst|DianZhen_Data[30,38,51]                 ; Merged with display_state:display_state_inst|DianZhen_Data[52]         ;
+; display_state:display_state_inst|DianZhen_Data[8,16,24,32,40]            ; Merged with display_state:display_state_inst|DianZhen_Data[48]         ;
+; display_state:display_state_inst|DianZhen_Data[43]                       ; Merged with display_state:display_state_inst|DianZhen_Data[44]         ;
+; display_state:display_state_inst|DianZhen_Data[29]                       ; Merged with display_state:display_state_inst|DianZhen_Data[37]         ;
+; display_state:display_state_inst|DianZhen_Data[25]                       ; Merged with display_state:display_state_inst|DianZhen_Data[33]         ;
+; display_state:display_state_inst|DianZhen_Data[27]                       ; Merged with display_state:display_state_inst|DianZhen_Data[28]         ;
+; display_state:display_state_inst|DianZhen_Data[19]                       ; Merged with display_state:display_state_inst|DianZhen_Data[20]         ;
+; display_state:display_state_inst|DianZhen_Data[10]                       ; Merged with display_state:display_state_inst|DianZhen_Data[13]         ;
+; display_state:display_state_inst|DianZhen_Data[11]                       ; Merged with display_state:display_state_inst|DianZhen_Data[12]         ;
+; display_state:display_state_inst|DianZhen_Data[1..5]                     ; Merged with display_state:display_state_inst|DianZhen_Data[6]          ;
+; display_state:display_state_inst|X_signal                                ; Merged with display_state:display_state_inst|DianZhen_Data[63]         ;
+; seg_led:seg_led_inst|display_divider:u10|cnt_p[0]                        ; Merged with display_state:display_state_inst|seg_scan:s1|scan_timer[0] ;
+; display_state:display_state_inst|seg_scan:s1|scan_sel[3]                 ; Stuck at GND due to stuck port data_in                                 ;
+; Total Number of Removed Registers = 48                                   ;                                                                        ;
++--------------------------------------------------------------------------+------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 303   ;
+; Number of registers using Synchronous Clear  ; 160   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 271   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 11    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------+
+; Inverted Register Statistics                                            ;
++---------------------------------------------------------------+---------+
+; Inverted Register                                             ; Fan out ;
++---------------------------------------------------------------+---------+
+; seg_led:seg_led_inst|sel_r[0]                                 ; 12      ;
+; display_state:display_state_inst|cnt_level[2]                 ; 12      ;
+; display_state:display_state_inst|random_num:r1|ran_num_reg[0] ; 4       ;
+; Total number of inverted registers = 3                        ;         ;
++---------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|DianZhen_Data[37]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |display|display_state:display_state_inst|count[3]                     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |display|display_state:display_state_inst|cnt_level[0]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |display|display_state:display_state_inst|random_num:r1|ran_num_reg[1] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|direction[1]                 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|DianZhen_Data[18]            ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|DianZhen_Data[54]            ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|DianZhen_Data[53]            ;
+; 9:1                ; 4 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|DianZhen_Data[9]             ;
+; 10:1               ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|DianZhen_Data[63]            ;
+; 15:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |display|display_state:display_state_inst|Vision_value[0]              ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |display|seg_led:seg_led_inst|Mux0                                     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |display|display_state:display_state_inst|seg_scan:s1|Mux12            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 24 LEs               ; 8 LEs                  ; No         ; |display|display_state:display_state_inst|seg_scan:s1|Mux26            ;
+; 6:1                ; 8 bits    ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |display|display_state:display_state_inst|seg_scan:s1|Mux19            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: display_state:display_state_inst|seg_scan:s1 ;
++----------------+----------+---------------------------------------------------------------+
+; Parameter Name ; Value    ; Type                                                          ;
++----------------+----------+---------------------------------------------------------------+
+; scanFreq       ; 1250     ; Signed Integer                                                ;
+; clkFreq        ; 10000000 ; Signed Integer                                                ;
+; cntNum         ; 999      ; Signed Integer                                                ;
++----------------+----------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: seg_led:seg_led_inst|display_divider:u10 ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; WIDTH          ; 32    ; Signed Integer                                               ;
+; N              ; 10    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_debounce:key_debounce_restart ;
++----------------+-------+-------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                  ;
++----------------+-------+-------------------------------------------------------+
+; N              ; 1     ; Signed Integer                                        ;
++----------------+-------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_debounce:key_debounce_u1 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_debounce:key_debounce_u2 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_debounce:key_debounce_u3 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_debounce:key_debounce_u4 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_state:display_state_inst|lpm_divide:Mod0 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_tnl ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_state:display_state_inst|lpm_divide:Div0 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_qvl ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: display_state:display_state_inst|lpm_divide:Mod1 ;
++------------------------+----------------+---------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                    ;
++------------------------+----------------+---------------------------------------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                                                 ;
+; LPM_WIDTHD             ; 4              ; Untyped                                                 ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                                 ;
+; LPM_PIPELINE           ; 0              ; Untyped                                                 ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                                 ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                                 ;
+; CBXI_PARAMETER         ; lpm_divide_tnl ; Untyped                                                 ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                                 ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                                 ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                              ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                            ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                            ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                          ;
++------------------------+----------------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Thu Dec 14 08:44:25 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off display -c display
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file tb/display_tb.v
+    Info (12023): Found entity 1: display_tb File: D:/ShuDianShiYan/display_sight_test_final/tb/display_tb.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file src/display_divider.v
+    Info (12023): Found entity 1: display_divider File: D:/ShuDianShiYan/display_sight_test_final/src/display_divider.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/random_num.v
+    Info (12023): Found entity 1: random_num File: D:/ShuDianShiYan/display_sight_test_final/src/random_num.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file src/seg_scan.v
+    Info (12023): Found entity 1: seg_scan File: D:/ShuDianShiYan/display_sight_test_final/src/seg_scan.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/key_debouce.v
+    Info (12023): Found entity 1: key_debounce File: D:/ShuDianShiYan/display_sight_test_final/src/key_debouce.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/display_state.v
+    Info (12023): Found entity 1: display_state File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/display.v
+    Info (12023): Found entity 1: display File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file src/seg_led.v
+    Info (12023): Found entity 1: seg_led File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 1
+Info (12127): Elaborating entity "display" for the top level hierarchy
+Info (12128): Elaborating entity "display_state" for hierarchy "display_state:display_state_inst" File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 38
+Warning (10036): Verilog HDL or VHDL warning at display_state.v(186): object "flag" assigned a value but never read File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 186
+Warning (10230): Verilog HDL assignment warning at display_state.v(216): truncated value with size 8 to match size of target (4) File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 216
+Warning (10230): Verilog HDL assignment warning at display_state.v(217): truncated value with size 8 to match size of target (4) File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+Info (12128): Elaborating entity "seg_scan" for hierarchy "display_state:display_state_inst|seg_scan:s1" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 245
+Warning (10230): Verilog HDL assignment warning at seg_scan.v(152): truncated value with size 32 to match size of target (3) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_scan.v Line: 152
+Info (12128): Elaborating entity "random_num" for hierarchy "display_state:display_state_inst|random_num:r1" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 254
+Warning (10230): Verilog HDL assignment warning at random_num.v(21): truncated value with size 32 to match size of target (3) File: D:/ShuDianShiYan/display_sight_test_final/src/random_num.v Line: 21
+Info (12128): Elaborating entity "seg_led" for hierarchy "seg_led:seg_led_inst" File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 48
+Info (10264): Verilog HDL Case Statement information at seg_led.v(39): all case item expressions in this case statement are onehot File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 39
+Warning (10240): Verilog HDL Always Construct warning at seg_led.v(50): inferring latch(es) for variable "seg_led_r", which holds its previous value in one or more paths through the always construct File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[0]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[1]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[2]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[3]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[4]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[5]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[6]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (10041): Inferred latch for "seg_led_r[7]" at seg_led.v(50) File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+Info (12128): Elaborating entity "display_divider" for hierarchy "seg_led:seg_led_inst|display_divider:u10" File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 19
+Info (12128): Elaborating entity "key_debounce" for hierarchy "key_debounce:key_debounce_restart" File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 56
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_state:display_state_inst|Mod0" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 216
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_state:display_state_inst|Div0" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "display_state:display_state_inst|Mod1" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+Info (12130): Elaborated megafunction instantiation "display_state:display_state_inst|lpm_divide:Mod0" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 216
+Info (12133): Instantiated megafunction "display_state:display_state_inst|lpm_divide:Mod0" with the following parameter: File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 216
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_tnl.tdf
+    Info (12023): Found entity 1: lpm_divide_tnl File: D:/ShuDianShiYan/display_sight_test_final/db/lpm_divide_tnl.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_bkh File: D:/ShuDianShiYan/display_sight_test_final/db/sign_div_unsign_bkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_hie.tdf
+    Info (12023): Found entity 1: alt_u_div_hie File: D:/ShuDianShiYan/display_sight_test_final/db/alt_u_div_hie.tdf Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_e7c.tdf
+    Info (12023): Found entity 1: add_sub_e7c File: D:/ShuDianShiYan/display_sight_test_final/db/add_sub_e7c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_f7c.tdf
+    Info (12023): Found entity 1: add_sub_f7c File: D:/ShuDianShiYan/display_sight_test_final/db/add_sub_f7c.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_g7c.tdf
+    Info (12023): Found entity 1: add_sub_g7c File: D:/ShuDianShiYan/display_sight_test_final/db/add_sub_g7c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_h7c.tdf
+    Info (12023): Found entity 1: add_sub_h7c File: D:/ShuDianShiYan/display_sight_test_final/db/add_sub_h7c.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_i7c.tdf
+    Info (12023): Found entity 1: add_sub_i7c File: D:/ShuDianShiYan/display_sight_test_final/db/add_sub_i7c.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "display_state:display_state_inst|lpm_divide:Div0" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+Info (12133): Instantiated megafunction "display_state:display_state_inst|lpm_divide:Div0" with the following parameter: File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_qvl.tdf
+    Info (12023): Found entity 1: lpm_divide_qvl File: D:/ShuDianShiYan/display_sight_test_final/db/lpm_divide_qvl.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "display_state:display_state_inst|lpm_divide:Mod1" File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+Info (12133): Instantiated megafunction "display_state:display_state_inst|lpm_divide:Mod1" with the following parameter: File: D:/ShuDianShiYan/display_sight_test_final/src/display_state.v Line: 217
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[0] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[1] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[2] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[3] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[4] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[5] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[6] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[1] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13012): Latch seg_led:seg_led_inst|seg_led_r[7] has unsafe behavior File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 50
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal seg_led:seg_led_inst|sel_r[2] File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg_sel[3]" is stuck at VCC File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 12
+    Warning (13410): Pin "seg_sel[4]" is stuck at VCC File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 12
+    Warning (13410): Pin "seg_sel[5]" is stuck at VCC File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 12
+    Warning (13410): Pin "seg_sel[6]" is stuck at VCC File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 12
+    Warning (13410): Pin "seg_sel[7]" is stuck at VCC File: D:/ShuDianShiYan/display_sight_test_final/src/display.v Line: 12
+Info (18000): Registers with preset signals will power-up high File: D:/ShuDianShiYan/display_sight_test_final/src/seg_led.v Line: 28
+Info (21057): Implemented 705 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 666 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
+    Info: Peak virtual memory: 4736 megabytes
+    Info: Processing ended: Thu Dec 14 08:44:31 2023
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:03
+
+

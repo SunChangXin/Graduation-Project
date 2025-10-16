@@ -1,0 +1,18 @@
+module PWM(duty,clk,out);
+	input [7:0] duty;
+	input clk;
+	
+	output reg out;
+	
+	reg [7:0] buffer = 0; // 最大值为255
+	
+	always @ (posedge clk)
+	begin
+		buffer <= buffer + 1;
+		if(buffer < duty)
+			out <= 0;
+		else
+			out <= 1;
+	end
+	
+endmodule

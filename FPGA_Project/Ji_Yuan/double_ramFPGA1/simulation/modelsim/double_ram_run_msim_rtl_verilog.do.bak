@@ -1,0 +1,10 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+E:/LPB/fpgabeiyou/double_ram {E:/LPB/fpgabeiyou/double_ram/ram2.v}
+vlog -vlog01compat -work work +incdir+E:/LPB/fpgabeiyou/double_ram {E:/LPB/fpgabeiyou/double_ram/double_ram.v}
+

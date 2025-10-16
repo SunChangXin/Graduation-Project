@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Tue Nov 21 19:12:44 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : JK_ff
+Top-level Entity Name : JK_ff
+Family : MAX 10
+Device : 10M02SCM153I7G
+Power Models : Final
+Total Thermal Power Dissipation : 113.02 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 66.85 mW
+I/O Thermal Power Dissipation : 46.17 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

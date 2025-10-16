@@ -1,0 +1,49 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'seg_led:seg_led_inst|sel_r[0]'
+Slack : -13.774
+TNS   : -88.850
+
+Type  : Setup 'sys_clk'
+Slack : -10.668
+TNS   : -1719.232
+
+Type  : Setup 'seg_led:seg_led_inst|display_divider:u10|clk_p'
+Slack : -2.284
+TNS   : -3.767
+
+Type  : Hold 'seg_led:seg_led_inst|sel_r[0]'
+Slack : -4.786
+TNS   : -30.299
+
+Type  : Hold 'seg_led:seg_led_inst|display_divider:u10|clk_p'
+Slack : -4.327
+TNS   : -8.149
+
+Type  : Hold 'sys_clk'
+Slack : 1.398
+TNS   : 0.000
+
+Type  : Recovery 'seg_led:seg_led_inst|sel_r[0]'
+Slack : -5.147
+TNS   : -29.155
+
+Type  : Removal 'seg_led:seg_led_inst|sel_r[0]'
+Slack : -5.372
+TNS   : -26.963
+
+Type  : Minimum Pulse Width 'sys_clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'seg_led:seg_led_inst|display_divider:u10|clk_p'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'seg_led:seg_led_inst|sel_r[0]'
+Slack : 0.500
+TNS   : 0.000
+
+------------------------------------------------------------

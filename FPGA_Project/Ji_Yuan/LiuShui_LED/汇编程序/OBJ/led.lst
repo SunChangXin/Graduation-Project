@@ -1,0 +1,122 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 THUMB
+    2 00000000                 REQUIRE8
+    3 00000000                 PRESERVE8
+    4 00000000         
+    5 00000000                 EXPORT           LED_Init
+    6 00000000         
+    7 00000000                 IMPORT           GPIO_Set
+    8 00000000                 IMPORT           GPIO_Write
+    9 00000000         
+   10 00000000         
+   11 00000000                 AREA             ||i.LED_Init||, CODE, READONLY,
+ ALIGN=2
+   12 00000000         
+   13 00000000         |RCC_AHB1ENR|
+   14 00000000 40023830        DCD              0x40023830
+   15 00000004         |GPIOF|
+   16 00000004 40021400        DCD              0x40021400
+   17 00000008         
+   18 00000008         ; void LED_Init(void)
+   19 00000008         LED_Init
+                               PROC
+   20 00000008 B51C            PUSH             {r2-r4,lr}
+   21 0000000A F85F 000C       LDR              r0,|RCC_AHB1ENR| ; ¶ÁÈ¡RCC_AHB1
+                                                            ENRµÄÖµ
+   22 0000000E 6800            LDR              r0,[r0,#0]
+   23 00000010 F040 0020       ORR              r0,r0,#0x20
+   24 00000014 F85F 1018       LDR              r1,|RCC_AHB1ENR|
+   25 00000018 6008            STR              r0,[r1,#0]  ; RCC_AHB1ENRµÄÎ»5Ö
+                                                            Ã1£¬¼´Ê¹ÄÜIO¶Ë¿ÚFÊ±
+                                                            ÖÓ 
+   26 0000001A 2001            MOVS             r0,#1       ; PUPD
+   27 0000001C 2103            MOVS             r1,#3       ; OSPEED
+   28 0000001E 2201            MOVS             r2,#1       ; MODE
+   29 00000020 2300            MOVS             r3,#0       ; OTYPE
+   30 00000022 E9CD 1000       STRD             r1,r0,[sp,#0]
+   31 00000026 21FF            MOVS             r1,#0xff    ; BITx
+   32 00000028 F85F 0028       LDR              r0,|GPIOF|  ; GPIOx
+   33 0000002C F7FF FFFE       BL               GPIO_Set    ; µ÷ÓÃIO¶Ë¿ÚÅäÖÃº¯Ê
+                                                            ýGPIO_Set
+   34 00000030 F04F 01FF       MOV              r1,#0xff
+   35 00000034 F85F 0034       LDR              r0,|GPIOF|  ; µãÁÁËùÓÐLEDµÆ
+   36 00000038 F7FF FFFE       BL               GPIO_Write
+   37 0000003C BD1C            POP              {r2-r4,pc}
+   38 0000003E                 ENDP
+   39 0000003E         
+   40 0000003E                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
+erwork --depend=.\led.d -o.\led.o -I.\RTE\_Target_1 -I"F:\STM32\Keil5 MDK\ARM\P
+ACK\Keil\STM32F4xx_DFP\1.0.8\Device\Include" -I"F:\STM32\Keil5 MDK\ARM\CMSIS\In
+clude" --predefine="__UVISION_VERSION SETA 524" --predefine="STM32F40_41xxx SET
+A 1" --list=..\obj\led.lst ..\HARDWARE\led.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+GPIOF 00000004
+
+Symbol: GPIOF
+   Definitions
+      At line 15 in file ..\HARDWARE\led.s
+   Uses
+      At line 32 in file ..\HARDWARE\led.s
+      At line 35 in file ..\HARDWARE\led.s
+
+LED_Init 00000008
+
+Symbol: LED_Init
+   Definitions
+      At line 19 in file ..\HARDWARE\led.s
+   Uses
+      At line 5 in file ..\HARDWARE\led.s
+Comment: LED_Init used once
+RCC_AHB1ENR 00000000
+
+Symbol: RCC_AHB1ENR
+   Definitions
+      At line 13 in file ..\HARDWARE\led.s
+   Uses
+      At line 21 in file ..\HARDWARE\led.s
+      At line 24 in file ..\HARDWARE\led.s
+
+|i.LED_Init| 00000000
+
+Symbol: |i.LED_Init|
+   Definitions
+      At line 11 in file ..\HARDWARE\led.s
+   Uses
+      None
+Comment: |i.LED_Init| unused
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+GPIO_Set 00000000
+
+Symbol: GPIO_Set
+   Definitions
+      At line 7 in file ..\HARDWARE\led.s
+   Uses
+      At line 33 in file ..\HARDWARE\led.s
+Comment: GPIO_Set used once
+GPIO_Write 00000000
+
+Symbol: GPIO_Write
+   Definitions
+      At line 8 in file ..\HARDWARE\led.s
+   Uses
+      At line 36 in file ..\HARDWARE\led.s
+Comment: GPIO_Write used once
+2 symbols
+339 symbols in table

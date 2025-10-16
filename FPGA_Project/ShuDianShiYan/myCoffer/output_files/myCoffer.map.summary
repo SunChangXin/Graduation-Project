@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Nov 30 11:28:03 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : myCoffer
+Top-level Entity Name : myCoffer
+Family : MAX 10
+Total logic elements : 69
+    Total combinational functions : 60
+    Dedicated logic registers : 48
+Total registers : 48
+Total pins : 28
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

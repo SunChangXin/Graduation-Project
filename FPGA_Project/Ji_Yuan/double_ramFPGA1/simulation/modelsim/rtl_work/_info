@@ -1,0 +1,65 @@
+m255
+K3
+13
+cModel Technology
+Z0 dI:\double_ram\simulation\modelsim
+vdouble_ram
+I9bg9DN88`]c1mnM3;<azE0
+VVcoHAo<czClni31MU;@Yo3
+Z1 dI:\double_ram\simulation\modelsim
+w1547606595
+8I:/double_ram/double_ram.v
+FI:/double_ram/double_ram.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+I:/double_ram -O0
+!i10b 1
+!s100 hI7h3CRUOL7BeT1V8HIQM0
+!s85 0
+!s108 1547631096.381000
+!s107 I:/double_ram/double_ram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+I:/double_ram|I:/double_ram/double_ram.v|
+!s101 -O0
+vdpram_tb
+!i10b 1
+!s100 JBK];]<Vd?1U`9Kc7dZkD3
+IC74D9NE]b9Q2QoOz8:FaW2
+V1MMMz75HiD2V]TNSf>I8:0
+R1
+w1547606511
+8I:/double_ram/dpram_tb.v
+FI:/double_ram/dpram_tb.v
+L0 5
+R2
+r1
+!s85 0
+31
+!s108 1547631096.472000
+!s107 I:/double_ram/dpram_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+I:/double_ram|I:/double_ram/dpram_tb.v|
+!s101 -O0
+R3
+R4
+vram2
+IIe]W0@B:kQC8802n9Sz=I1
+V458AU_<F9f@]Nado>SV9N3
+R1
+w1547605660
+8I:/double_ram/ram2.v
+FI:/double_ram/ram2.v
+L0 39
+R2
+r1
+31
+R3
+R4
+!i10b 1
+!s100 Qj7BcKI25M[V>XI>CJ34_1
+!s85 0
+!s108 1547631096.221000
+!s107 I:/double_ram/ram2.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+I:/double_ram|I:/double_ram/ram2.v|
+!s101 -O0

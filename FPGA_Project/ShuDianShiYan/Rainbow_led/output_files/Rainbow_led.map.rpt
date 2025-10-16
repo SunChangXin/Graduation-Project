@@ -1,0 +1,463 @@
+Analysis & Synthesis report for Rainbow_led
+Thu Nov 30 19:28:47 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |Rainbow_led
+ 13. Parameter Settings for User Entity Instance: debounce:u1
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
+ 17. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Nov 30 19:28:47 2023          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; Rainbow_led                                    ;
+; Top-level Entity Name              ; Rainbow_led                                    ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 288                                            ;
+;     Total combinational functions  ; 282                                            ;
+;     Dedicated logic registers      ; 156                                            ;
+; Total registers                    ; 156                                            ;
+; Total pins                         ; 15                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M02SCM153I7G     ;                    ;
+; Top-level entity name                                            ; Rainbow_led        ; Rainbow_led        ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-14        ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                             ;
++----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path               ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
+; ../debounce/debounce.v           ; yes             ; User Verilog HDL File  ; D:/ShuDianShiYan/debounce/debounce.v       ;         ;
+; Rainbow_led.v                    ; yes             ; User Verilog HDL File  ; D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v ;         ;
+; PWM.v                            ; yes             ; User Verilog HDL File  ; D:/ShuDianShiYan/Rainbow_led/PWM.v         ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 288       ;
+;                                             ;           ;
+; Total combinational functions               ; 282       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 80        ;
+;     -- 3 input functions                    ; 77        ;
+;     -- <=2 input functions                  ; 125       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 158       ;
+;     -- arithmetic mode                      ; 124       ;
+;                                             ;           ;
+; Total registers                             ; 156       ;
+;     -- Dedicated logic registers            ; 156       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 15        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 92        ;
+; Total fan-out                               ; 1229      ;
+; Average fan-out                             ; 2.63      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                     ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name      ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+; |Rainbow_led               ; 282 (188)           ; 156 (112)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 15   ; 0            ; 0          ; |Rainbow_led             ; Rainbow_led ; work         ;
+;    |PWM:p1|                ; 17 (17)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|PWM:p1      ; PWM         ; work         ;
+;    |PWM:p2|                ; 9 (9)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|PWM:p2      ; PWM         ; work         ;
+;    |PWM:p3|                ; 9 (9)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|PWM:p3      ; PWM         ; work         ;
+;    |PWM:p4|                ; 9 (9)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|PWM:p4      ; PWM         ; work         ;
+;    |PWM:p5|                ; 9 (9)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|PWM:p5      ; PWM         ; work         ;
+;    |PWM:p6|                ; 9 (9)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|PWM:p6      ; PWM         ; work         ;
+;    |debounce:u1|           ; 32 (32)             ; 30 (30)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Rainbow_led|debounce:u1 ; debounce    ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; NUM[0,1,18..63]                        ; Stuck at GND due to stuck port data_in ;
+; PWM:p2|buffer[7]                       ; Merged with PWM:p1|buffer[7]           ;
+; PWM:p3|buffer[7]                       ; Merged with PWM:p1|buffer[7]           ;
+; PWM:p4|buffer[7]                       ; Merged with PWM:p1|buffer[7]           ;
+; PWM:p5|buffer[7]                       ; Merged with PWM:p1|buffer[7]           ;
+; PWM:p6|buffer[7]                       ; Merged with PWM:p1|buffer[7]           ;
+; PWM:p2|buffer[6]                       ; Merged with PWM:p1|buffer[6]           ;
+; PWM:p3|buffer[6]                       ; Merged with PWM:p1|buffer[6]           ;
+; PWM:p4|buffer[6]                       ; Merged with PWM:p1|buffer[6]           ;
+; PWM:p5|buffer[6]                       ; Merged with PWM:p1|buffer[6]           ;
+; PWM:p6|buffer[6]                       ; Merged with PWM:p1|buffer[6]           ;
+; PWM:p2|buffer[5]                       ; Merged with PWM:p1|buffer[5]           ;
+; PWM:p3|buffer[5]                       ; Merged with PWM:p1|buffer[5]           ;
+; PWM:p4|buffer[5]                       ; Merged with PWM:p1|buffer[5]           ;
+; PWM:p5|buffer[5]                       ; Merged with PWM:p1|buffer[5]           ;
+; PWM:p6|buffer[5]                       ; Merged with PWM:p1|buffer[5]           ;
+; PWM:p2|buffer[4]                       ; Merged with PWM:p1|buffer[4]           ;
+; PWM:p3|buffer[4]                       ; Merged with PWM:p1|buffer[4]           ;
+; PWM:p4|buffer[4]                       ; Merged with PWM:p1|buffer[4]           ;
+; PWM:p5|buffer[4]                       ; Merged with PWM:p1|buffer[4]           ;
+; PWM:p6|buffer[4]                       ; Merged with PWM:p1|buffer[4]           ;
+; PWM:p2|buffer[3]                       ; Merged with PWM:p1|buffer[3]           ;
+; PWM:p3|buffer[3]                       ; Merged with PWM:p1|buffer[3]           ;
+; PWM:p4|buffer[3]                       ; Merged with PWM:p1|buffer[3]           ;
+; PWM:p5|buffer[3]                       ; Merged with PWM:p1|buffer[3]           ;
+; PWM:p6|buffer[3]                       ; Merged with PWM:p1|buffer[3]           ;
+; PWM:p2|buffer[2]                       ; Merged with PWM:p1|buffer[2]           ;
+; PWM:p3|buffer[2]                       ; Merged with PWM:p1|buffer[2]           ;
+; PWM:p4|buffer[2]                       ; Merged with PWM:p1|buffer[2]           ;
+; PWM:p5|buffer[2]                       ; Merged with PWM:p1|buffer[2]           ;
+; PWM:p6|buffer[2]                       ; Merged with PWM:p1|buffer[2]           ;
+; PWM:p2|buffer[1]                       ; Merged with PWM:p1|buffer[1]           ;
+; PWM:p3|buffer[1]                       ; Merged with PWM:p1|buffer[1]           ;
+; PWM:p4|buffer[1]                       ; Merged with PWM:p1|buffer[1]           ;
+; PWM:p5|buffer[1]                       ; Merged with PWM:p1|buffer[1]           ;
+; PWM:p6|buffer[1]                       ; Merged with PWM:p1|buffer[1]           ;
+; PWM:p2|buffer[0]                       ; Merged with PWM:p1|buffer[0]           ;
+; PWM:p3|buffer[0]                       ; Merged with PWM:p1|buffer[0]           ;
+; PWM:p4|buffer[0]                       ; Merged with PWM:p1|buffer[0]           ;
+; PWM:p5|buffer[0]                       ; Merged with PWM:p1|buffer[0]           ;
+; PWM:p6|buffer[0]                       ; Merged with PWM:p1|buffer[0]           ;
+; NUM[17]                                ; Merged with NUM[11]                    ;
+; NUM[16]                                ; Merged with NUM[10]                    ;
+; NUM[9]                                 ; Merged with NUM[15]                    ;
+; NUM[2]                                 ; Merged with NUM[12]                    ;
+; Total Number of Removed Registers = 92 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 156   ;
+; Number of registers using Synchronous Clear  ; 82    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 30    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 3     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; confirm_1                               ; 18      ;
+; confirm_2                               ; 21      ;
+; confirm_3                               ; 17      ;
+; debounce:u1|key_sec[2]                  ; 2       ;
+; debounce:u1|key_sec_pre[2]              ; 1       ;
+; debounce:u1|key_sec[1]                  ; 2       ;
+; debounce:u1|key_sec_pre[1]              ; 1       ;
+; debounce:u1|key_sec[0]                  ; 2       ;
+; debounce:u1|key_sec_pre[0]              ; 1       ;
+; debounce:u1|key_rst[0]                  ; 2       ;
+; debounce:u1|key_rst[1]                  ; 2       ;
+; debounce:u1|key_rst_pre[0]              ; 1       ;
+; debounce:u1|key_rst_pre[1]              ; 1       ;
+; debounce:u1|key_rst[2]                  ; 2       ;
+; debounce:u1|key_rst_pre[2]              ; 1       ;
+; Total number of inverted registers = 15 ;         ;
++-----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; Yes        ; |Rainbow_led|g2_buf[3]     ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Rainbow_led|b1_buf        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Rainbow_led|r1_buf        ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Rainbow_led|g1_buf        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Rainbow_led ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; f1             ; 1000  ; Unsigned Binary                                    ;
+; f2             ; 0100  ; Unsigned Binary                                    ;
+; f3             ; 0010  ; Unsigned Binary                                    ;
+; f4             ; 0001  ; Unsigned Binary                                    ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:u1 ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; N              ; 3     ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 15                          ;
+; cycloneiii_ff         ; 156                         ;
+;     CLR               ; 9                           ;
+;     CLR SCLR          ; 18                          ;
+;     ENA CLR           ; 3                           ;
+;     SCLR              ; 64                          ;
+;     plain             ; 62                          ;
+; cycloneiii_lcell_comb ; 282                         ;
+;     arith             ; 124                         ;
+;         2 data inputs ; 81                          ;
+;         3 data inputs ; 43                          ;
+;     normal            ; 158                         ;
+;         1 data inputs ; 20                          ;
+;         2 data inputs ; 24                          ;
+;         3 data inputs ; 34                          ;
+;         4 data inputs ; 80                          ;
+;                       ;                             ;
+; Max LUT depth         ; 11.00                       ;
+; Average LUT depth     ; 3.46                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Thu Nov 30 19:28:38 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Rainbow_led -c Rainbow_led
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /shudianshiyan/debounce/debounce.v
+    Info (12023): Found entity 1: debounce File: D:/ShuDianShiYan/debounce/debounce.v Line: 18
+Warning (12090): Entity "divide" obtained from "../divide/divide.v" instead of from Quartus Prime megafunction library File: D:/ShuDianShiYan/divide/divide.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file /shudianshiyan/divide/divide.v
+    Info (12023): Found entity 1: divide File: D:/ShuDianShiYan/divide/divide.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file rainbow_led.v
+    Info (12023): Found entity 1: Rainbow_led File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file pwm.v
+    Info (12023): Found entity 1: PWM File: D:/ShuDianShiYan/Rainbow_led/PWM.v Line: 1
+Info (12127): Elaborating entity "Rainbow_led" for the top level hierarchy
+Info (10264): Verilog HDL Case Statement information at Rainbow_led.v(92): all case item expressions in this case statement are onehot File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 92
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(105): truncated value with size 32 to match size of target (16) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 105
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(113): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 113
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(115): truncated value with size 16 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 115
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(120): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 120
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(121): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 121
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(125): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 125
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(126): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 126
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(140): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 140
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(142): truncated value with size 16 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 142
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(147): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 147
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(148): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 148
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(152): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 152
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(153): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 153
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(160): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 160
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(161): truncated value with size 16 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 161
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(167): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 167
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(168): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 168
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(172): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 172
+Warning (10230): Verilog HDL assignment warning at Rainbow_led.v(174): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 174
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:u1" File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 36
+Info (12128): Elaborating entity "PWM" for hierarchy "PWM:p1" File: D:/ShuDianShiYan/Rainbow_led/Rainbow_led.v Line: 44
+Warning (10230): Verilog HDL assignment warning at PWM.v(11): truncated value with size 32 to match size of target (8) File: D:/ShuDianShiYan/Rainbow_led/PWM.v Line: 11
+Info (13000): Registers with preset signals will power-up high File: D:/ShuDianShiYan/debounce/debounce.v Line: 73
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file D:/ShuDianShiYan/Rainbow_led/output_files/Rainbow_led.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 304 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 6 output pins
+    Info (21061): Implemented 289 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 4836 megabytes
+    Info: Processing ended: Thu Nov 30 19:28:47 2023
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/ShuDianShiYan/Rainbow_led/output_files/Rainbow_led.map.smsg.
+
+

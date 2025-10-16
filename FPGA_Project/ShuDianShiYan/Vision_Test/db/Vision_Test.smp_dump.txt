@@ -1,0 +1,6 @@
+
+State Machine - |Vision_Test|state_display:display|state_current
+Name state_current.STATE_FALSE state_current.STATE_DISPLAY state_current.STATE_IDLE 
+state_current.STATE_IDLE 0 0 0 
+state_current.STATE_DISPLAY 0 1 1 
+state_current.STATE_FALSE 1 0 1 

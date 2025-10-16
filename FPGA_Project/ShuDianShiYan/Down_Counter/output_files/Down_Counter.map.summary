@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Fri Nov 24 10:08:00 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : Down_Counter
+Top-level Entity Name : Down_Counter
+Family : MAX 10
+Total logic elements : 154
+    Total combinational functions : 152
+    Dedicated logic registers : 61
+Total registers : 61
+Total pins : 21
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

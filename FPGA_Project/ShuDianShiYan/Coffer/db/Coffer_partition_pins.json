@@ -1,0 +1,133 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led[0]",
+					"strict" : false
+				},
+				{
+					"name" : "led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "led[2]",
+					"strict" : false
+				},
+				{
+					"name" : "led[3]",
+					"strict" : false
+				},
+				{
+					"name" : "led[4]",
+					"strict" : false
+				},
+				{
+					"name" : "led[5]",
+					"strict" : false
+				},
+				{
+					"name" : "led[6]",
+					"strict" : false
+				},
+				{
+					"name" : "led[7]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg_led2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "SwitchInput[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SwitchInput[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SwitchInput[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SwitchInput[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ge_wei",
+					"strict" : false
+				},
+				{
+					"name" : "shi_wei",
+					"strict" : false
+				},
+				{
+					"name" : "confirm",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,43 @@
+`timescale 1ms/1us  
+module debounce_tb();
+	reg key;
+	reg clk;
+	
+	output 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+endmodule

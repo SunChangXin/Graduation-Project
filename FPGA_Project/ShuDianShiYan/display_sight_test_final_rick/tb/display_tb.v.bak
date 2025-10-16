@@ -1,0 +1,93 @@
+`timescale 1ns / 1ps
+module display_tb();
+reg   clk;//模拟系统时钟
+reg   rst;//模拟复位信号
+wire [7:0] col_pin;//列引脚输出 （高电平有效）
+wire [7:0] row_pin;//行引脚输出 （低电平有效）
+
+wire [2:0] seg_sel;//数码管片选
+wire [7:0] seg_led;//数码管段选
+
+reg KeyRESTART;
+reg LeftDown;    //左键
+reg RightDown;   //右键
+reg DownDown;    //下键
+reg upDown;      //上键
+//信号的定义，生成一个时钟信号,周期为10ns
+parameter CLK_PERIOD=10 ;  
+always # (CLK_PERIOD/2)  clk = ~ clk;	
+
+
+initial
+begin
+	clk = 0 ;
+	rst = 1 ;
+	KeyRESTART=0;
+	LeftDown=0;
+	RightDown=0;
+	DownDown=0;
+	upDown=0;
+	#200
+	rst=  0 ;//复位信号为0，代表复位键没有被按下，解除复位状态。
+	#5000
+	KeyRESTART=1;//启动键按下显示0.8视标方向
+	#200
+	KeyRESTART=0;
+	
+	#10000000//10000000000ps
+	LeftDown=1;
+	#2000
+	LeftDown=0;
+	
+	#10000000
+	RightDown=1;
+	#2000
+	RightDown=0;
+	
+	#10000000
+	DownDown=1;
+	#2000
+	DownDown=0;
+	
+	#10000000
+	upDown=1;
+	#2000
+	upDown=0;
+	
+	#10000000
+	RightDown=1;
+	#2000
+   RightDown=0;
+	
+	
+	#10000000
+	LeftDown=1; //左 右 下 上 右 左 上
+	#2000
+	LeftDown=0; //任意调整次数 每次间隔10000000000ps 目前共进行6次按键方向的判断 结果具有随机性 每次仿真结果不尽相同，取10000000000ps 是整数，便于判断反向 是哪次
+	
+	#10000000
+	upDown=1;
+	#2000
+	upDown=0;
+	
+	
+	#20000000
+	rst=1;
+	#5000
+	$stop;
+end
+
+display dut (
+           .sys_clk(clk),
+			  .sys_rst(rst),
+           .col_pin(col_pin),
+           .row_pin(row_pin),
+           .seg_sel(seg_sel),
+			  .seg_led(seg_led),
+			  .KeyRESTART(KeyRESTART),
+			  .KeyLeft(LeftDown),
+			  .KeyRight(RightDown),
+			  .KeyDown(DownDown),
+			  .Keyup(upDown)
+);
+endmodule

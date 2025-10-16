@@ -1,0 +1,41 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clk'
+Slack : -97.015
+TNS   : -439.199
+
+Type  : Setup 'divide:u2|clk_p'
+Slack : -8.782
+TNS   : -160.142
+
+Type  : Setup 'debounce:u1|key_sec[0]'
+Slack : -1.194
+TNS   : -1.194
+
+Type  : Hold 'clk'
+Slack : -2.395
+TNS   : -4.453
+
+Type  : Hold 'debounce:u1|key_sec[0]'
+Slack : 1.640
+TNS   : 0.000
+
+Type  : Hold 'divide:u2|clk_p'
+Slack : 2.975
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'debounce:u1|key_sec[0]'
+Slack : 0.234
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'divide:u2|clk_p'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

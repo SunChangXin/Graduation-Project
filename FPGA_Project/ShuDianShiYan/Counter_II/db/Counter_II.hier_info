@@ -1,0 +1,50 @@
+|Counter_II
+clk => clk.IN1
+rst => rst.IN1
+stop => stop.IN1
+seg_led[0] << seg.DATAOUT
+seg_led[1] << seg.DATAOUT1
+seg_led[2] << seg.DATAOUT2
+seg_led[3] << seg.DATAOUT3
+seg_led[4] << seg.DATAOUT4
+seg_led[5] << seg.DATAOUT5
+seg_led[6] << seg.DATAOUT6
+seg_led[7] << <GND>
+digtal_sw[0] << digtal_sw[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[1] << digtal_sw[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[2] << digtal_sw[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[3] << digtal_sw[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[4] << digtal_sw[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[5] << digtal_sw[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[6] << digtal_sw[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+digtal_sw[7] << digtal_sw[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count_out[0] << count[0].DB_MAX_OUTPUT_PORT_TYPE
+count_out[1] << count[1].DB_MAX_OUTPUT_PORT_TYPE
+count_out[2] << count[2].DB_MAX_OUTPUT_PORT_TYPE
+count_out[3] << count[3].DB_MAX_OUTPUT_PORT_TYPE
+count_out[4] << count[4].DB_MAX_OUTPUT_PORT_TYPE
+count_out[5] << count[5].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|Counter_II|Debounce_II:u1
+clk => key_sec_pre[0].CLK
+clk => key_sec[0].CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => key_rst_pre[0].CLK
+clk => key_rst[0].CLK
+rst => key_sec_pre[0].ACLR
+rst => key_sec[0].ACLR
+rst => cnt[0].ACLR
+rst => cnt[1].ACLR
+rst => cnt[2].ACLR
+rst => cnt[3].ACLR
+rst => key_rst_pre[0].ACLR
+rst => key_rst[0].ACLR
+key[0] => key_rst[0].DATAIN
+key[0] => key_sec[0].DATAIN
+key_pulse[0] <= key_pulse.DB_MAX_OUTPUT_PORT_TYPE
+
+

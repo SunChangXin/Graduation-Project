@@ -1,0 +1,137 @@
+|double_ram
+clock => clock.IN1
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+rdaddress[0] => n_rdaddress[0].IN1
+rdaddress[1] => n_rdaddress[1].IN1
+rdaddress[2] => n_rdaddress[2].IN1
+wraddress[0] => n_wraddress[0].IN1
+wraddress[1] => n_wraddress[1].IN1
+wraddress[2] => n_wraddress[2].IN1
+wren => wren.IN1
+q[0] << ram2:ram2.q
+q[1] << ram2:ram2.q
+q[2] << ram2:ram2.q
+q[3] << ram2:ram2.q
+
+
+|double_ram|ram2:ram2
+clock => clock.IN1
+data[0] => data[0].IN1
+data[1] => data[1].IN1
+data[2] => data[2].IN1
+data[3] => data[3].IN1
+rdaddress[0] => rdaddress[0].IN1
+rdaddress[1] => rdaddress[1].IN1
+rdaddress[2] => rdaddress[2].IN1
+rdaddress[3] => rdaddress[3].IN1
+wraddress[0] => wraddress[0].IN1
+wraddress[1] => wraddress[1].IN1
+wraddress[2] => wraddress[2].IN1
+wraddress[3] => wraddress[3].IN1
+wren => wren.IN1
+q[0] <= altsyncram:altsyncram_component.q_b
+q[1] <= altsyncram:altsyncram_component.q_b
+q[2] <= altsyncram:altsyncram_component.q_b
+q[3] <= altsyncram:altsyncram_component.q_b
+
+
+|double_ram|ram2:ram2|altsyncram:altsyncram_component
+wren_a => altsyncram_2cn1:auto_generated.wren_a
+rden_a => ~NO_FANOUT~
+wren_b => ~NO_FANOUT~
+rden_b => ~NO_FANOUT~
+data_a[0] => altsyncram_2cn1:auto_generated.data_a[0]
+data_a[1] => altsyncram_2cn1:auto_generated.data_a[1]
+data_a[2] => altsyncram_2cn1:auto_generated.data_a[2]
+data_a[3] => altsyncram_2cn1:auto_generated.data_a[3]
+data_b[0] => ~NO_FANOUT~
+data_b[1] => ~NO_FANOUT~
+data_b[2] => ~NO_FANOUT~
+data_b[3] => ~NO_FANOUT~
+address_a[0] => altsyncram_2cn1:auto_generated.address_a[0]
+address_a[1] => altsyncram_2cn1:auto_generated.address_a[1]
+address_a[2] => altsyncram_2cn1:auto_generated.address_a[2]
+address_a[3] => altsyncram_2cn1:auto_generated.address_a[3]
+address_b[0] => altsyncram_2cn1:auto_generated.address_b[0]
+address_b[1] => altsyncram_2cn1:auto_generated.address_b[1]
+address_b[2] => altsyncram_2cn1:auto_generated.address_b[2]
+address_b[3] => altsyncram_2cn1:auto_generated.address_b[3]
+addressstall_a => ~NO_FANOUT~
+addressstall_b => ~NO_FANOUT~
+clock0 => altsyncram_2cn1:auto_generated.clock0
+clock1 => ~NO_FANOUT~
+clocken0 => ~NO_FANOUT~
+clocken1 => ~NO_FANOUT~
+clocken2 => ~NO_FANOUT~
+clocken3 => ~NO_FANOUT~
+aclr0 => ~NO_FANOUT~
+aclr1 => ~NO_FANOUT~
+byteena_a[0] => ~NO_FANOUT~
+byteena_b[0] => ~NO_FANOUT~
+q_a[0] <= <GND>
+q_a[1] <= <GND>
+q_a[2] <= <GND>
+q_a[3] <= <GND>
+q_b[0] <= altsyncram_2cn1:auto_generated.q_b[0]
+q_b[1] <= altsyncram_2cn1:auto_generated.q_b[1]
+q_b[2] <= altsyncram_2cn1:auto_generated.q_b[2]
+q_b[3] <= altsyncram_2cn1:auto_generated.q_b[3]
+eccstatus[0] <= <GND>
+eccstatus[1] <= <GND>
+eccstatus[2] <= <GND>
+
+
+|double_ram|ram2:ram2|altsyncram:altsyncram_component|altsyncram_2cn1:auto_generated
+address_a[0] => ram_block1a0.PORTAADDR
+address_a[0] => ram_block1a1.PORTAADDR
+address_a[0] => ram_block1a2.PORTAADDR
+address_a[0] => ram_block1a3.PORTAADDR
+address_a[1] => ram_block1a0.PORTAADDR1
+address_a[1] => ram_block1a1.PORTAADDR1
+address_a[1] => ram_block1a2.PORTAADDR1
+address_a[1] => ram_block1a3.PORTAADDR1
+address_a[2] => ram_block1a0.PORTAADDR2
+address_a[2] => ram_block1a1.PORTAADDR2
+address_a[2] => ram_block1a2.PORTAADDR2
+address_a[2] => ram_block1a3.PORTAADDR2
+address_a[3] => ram_block1a0.PORTAADDR3
+address_a[3] => ram_block1a1.PORTAADDR3
+address_a[3] => ram_block1a2.PORTAADDR3
+address_a[3] => ram_block1a3.PORTAADDR3
+address_b[0] => ram_block1a0.PORTBADDR
+address_b[0] => ram_block1a1.PORTBADDR
+address_b[0] => ram_block1a2.PORTBADDR
+address_b[0] => ram_block1a3.PORTBADDR
+address_b[1] => ram_block1a0.PORTBADDR1
+address_b[1] => ram_block1a1.PORTBADDR1
+address_b[1] => ram_block1a2.PORTBADDR1
+address_b[1] => ram_block1a3.PORTBADDR1
+address_b[2] => ram_block1a0.PORTBADDR2
+address_b[2] => ram_block1a1.PORTBADDR2
+address_b[2] => ram_block1a2.PORTBADDR2
+address_b[2] => ram_block1a3.PORTBADDR2
+address_b[3] => ram_block1a0.PORTBADDR3
+address_b[3] => ram_block1a1.PORTBADDR3
+address_b[3] => ram_block1a2.PORTBADDR3
+address_b[3] => ram_block1a3.PORTBADDR3
+clock0 => ram_block1a0.CLK0
+clock0 => ram_block1a1.CLK0
+clock0 => ram_block1a2.CLK0
+clock0 => ram_block1a3.CLK0
+data_a[0] => ram_block1a0.PORTADATAIN
+data_a[1] => ram_block1a1.PORTADATAIN
+data_a[2] => ram_block1a2.PORTADATAIN
+data_a[3] => ram_block1a3.PORTADATAIN
+q_b[0] <= ram_block1a0.PORTBDATAOUT
+q_b[1] <= ram_block1a1.PORTBDATAOUT
+q_b[2] <= ram_block1a2.PORTBDATAOUT
+q_b[3] <= ram_block1a3.PORTBDATAOUT
+wren_a => ram_block1a0.PORTAWE
+wren_a => ram_block1a1.PORTAWE
+wren_a => ram_block1a2.PORTAWE
+wren_a => ram_block1a3.PORTAWE
+
+

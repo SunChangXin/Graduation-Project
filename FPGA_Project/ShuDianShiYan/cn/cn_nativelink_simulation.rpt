@@ -1,0 +1,176 @@
+Info: Start Nativelink Simulation process
+
+========= EDA Simulation Settings =====================
+
+Sim Mode              :  Gate
+Family                :  maxii
+Quartus root          :  d:/quartus/quartus/bin64/
+Quartus sim root      :  d:/quartus/quartus/eda/sim_lib
+Simulation Tool       :  modelsim
+Simulation Language   :  verilog
+Simulation Mode       :  GUI
+Sim Output File       :  cn.vo
+Sim SDF file          :  cn__verilog.sdo
+Sim dir               :  simulation\modelsim
+
+=======================================================
+
+Info: Starting NativeLink simulation with ModelSim software
+Sourced NativeLink script d:/quartus/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File cn_run_msim_gate_verilog.do already exists - backing up current file as cn_run_msim_gate_verilog.do.bak11
+Probing transcript
+ModelSim Info: # Reading pref.tcl
+ModelSim Info: # //  ModelSim SE-64 2020.4 Oct 13 2020
+ModelSim Info: # //
+ModelSim Info: # //  Copyright 1991-2020 Mentor Graphics Corporation
+ModelSim Info: # //  All Rights Reserved.
+ModelSim Info: # //
+ModelSim Info: # //  ModelSim SE-64 and its associated documentation contain trade
+ModelSim Info: # //  secrets and commercial or financial information that are the property of
+ModelSim Info: # //  Mentor Graphics Corporation and are privileged, confidential,
+ModelSim Info: # //  and exempt from disclosure under the Freedom of Information Act,
+ModelSim Info: # //  5 U.S.C. Section 552. Furthermore, this information
+ModelSim Info: # //  is prohibited from disclosure under the Trade Secrets Act,
+ModelSim Info: # //  18 U.S.C. Section 1905.
+ModelSim Info: # //
+ModelSim Info: # do cn_run_msim_gate_verilog.do
+ModelSim Info: # if ![file isdirectory verilog_libs] {
+ModelSim Info: # 	file mkdir verilog_libs
+ModelSim Info: # }
+ModelSim Info: # 
+ModelSim Info: # vlib verilog_libs/maxii_ver
+ModelSim Warning: # ** Warning: (vlib-34) Library already exists at "verilog_libs/maxii_ver".
+ModelSim Info: # Errors: 0, Warnings: 1
+ModelSim Info: # vmap maxii_ver ./verilog_libs/maxii_ver
+ModelSim Info: # Model Technology ModelSim SE-64 vmap 2020.4 Lib Mapping Utility 2020.10 Oct 13 2020
+ModelSim Info: # vmap maxii_ver ./verilog_libs/maxii_ver 
+ModelSim Info: # Copying D:/Modelsim/win64/../modelsim.ini to modelsim.ini
+ModelSim Info: # Modifying modelsim.ini
+ModelSim Info: # vlog -vlog01compat -work maxii_ver {d:/quartus/quartus/eda/sim_lib/maxii_atoms.v}
+ModelSim Info: # Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+ModelSim Info: # Start time: 09:53:44 on Nov 30,2023
+ModelSim Info: # vlog -reportprogress 300 -vlog01compat -work maxii_ver d:/quartus/quartus/eda/sim_lib/maxii_atoms.v 
+ModelSim Info: # -- Compiling UDP MAXII_PRIM_DFFE
+ModelSim Info: # -- Compiling UDP MAXII_PRIM_DFFEAS
+ModelSim Info: # -- Compiling UDP MAXII_PRIM_DFFEAS_HIGH
+ModelSim Info: # -- Compiling module maxii_dffe
+ModelSim Info: # -- Compiling module maxii_mux21
+ModelSim Info: # -- Compiling module maxii_mux41
+ModelSim Info: # -- Compiling module maxii_and1
+ModelSim Info: # -- Compiling module maxii_and16
+ModelSim Info: # -- Compiling module maxii_bmux21
+ModelSim Info: # -- Compiling module maxii_b17mux21
+ModelSim Info: # -- Compiling module maxii_nmux21
+ModelSim Info: # -- Compiling module maxii_b5mux21
+ModelSim Info: # -- Compiling module maxii_jtag
+ModelSim Info: # -- Compiling module maxii_crcblock
+ModelSim Info: # -- Compiling module maxii_asynch_lcell
+ModelSim Info: # -- Compiling module maxii_lcell_register
+ModelSim Info: # -- Compiling module maxii_lcell
+ModelSim Info: # -- Compiling module maxii_ufm
+ModelSim Info: # -- Compiling module maxii_io
+ModelSim Info: # -- Compiling module maxii_routing_wire
+ModelSim Info: # 
+ModelSim Info: # Top level modules:
+ModelSim Info: # 	maxii_dffe
+ModelSim Info: # 	maxii_mux21
+ModelSim Info: # 	maxii_mux41
+ModelSim Info: # 	maxii_and1
+ModelSim Info: # 	maxii_and16
+ModelSim Info: # 	maxii_bmux21
+ModelSim Info: # 	maxii_b17mux21
+ModelSim Info: # 	maxii_nmux21
+ModelSim Info: # 	maxii_b5mux21
+ModelSim Info: # 	maxii_jtag
+ModelSim Info: # 	maxii_crcblock
+ModelSim Info: # 	maxii_lcell
+ModelSim Info: # 	maxii_ufm
+ModelSim Info: # 	maxii_io
+ModelSim Info: # 	maxii_routing_wire
+ModelSim Info: # End time: 09:53:44 on Nov 30,2023, Elapsed time: 0:00:00
+ModelSim Info: # Errors: 0, Warnings: 0
+ModelSim Info: # 
+ModelSim Info: # if {[file exists gate_work]} {
+ModelSim Info: # 	vdel -lib gate_work -all
+ModelSim Info: # }
+ModelSim Warning: # ** Warning: (vdel-134) Unable to remove locked optimized design "_opt".  Locker is 86158@LAPTOP-G4R5VS09.
+ModelSim Info: # vlib gate_work
+ModelSim Warning: # ** Warning: (vlib-34) Library already exists at "gate_work".
+ModelSim Info: # Errors: 0, Warnings: 1
+ModelSim Info: # vmap work gate_work
+ModelSim Info: # Model Technology ModelSim SE-64 vmap 2020.4 Lib Mapping Utility 2020.10 Oct 13 2020
+ModelSim Info: # vmap work gate_work 
+ModelSim Info: # Modifying modelsim.ini
+ModelSim Info: # 
+ModelSim Info: # vlog -vlog01compat -work work +incdir+. {cn.vo}
+ModelSim Info: # Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+ModelSim Info: # Start time: 09:53:44 on Nov 30,2023
+ModelSim Info: # vlog -reportprogress 300 -vlog01compat -work work "+incdir+." cn.vo 
+ModelSim Info: # -- Compiling module cn
+ModelSim Info: # 
+ModelSim Info: # Top level modules:
+ModelSim Info: # 	cn
+ModelSim Info: # End time: 09:53:44 on Nov 30,2023, Elapsed time: 0:00:00
+ModelSim Info: # Errors: 0, Warnings: 0
+ModelSim Info: # 
+ModelSim Info: # vlog -vlog01compat -work work +incdir+D:/ShuDianShiYan/cn {D:/ShuDianShiYan/cn/cn_tb.v}
+ModelSim Info: # Model Technology ModelSim SE-64 vlog 2020.4 Compiler 2020.10 Oct 13 2020
+ModelSim Info: # Start time: 09:53:44 on Nov 30,2023
+ModelSim Info: # vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/ShuDianShiYan/cn" D:/ShuDianShiYan/cn/cn_tb.v 
+ModelSim Info: # -- Compiling module cn_tb
+ModelSim Info: # 
+ModelSim Info: # Top level modules:
+ModelSim Info: # 	cn_tb
+ModelSim Info: # End time: 09:53:44 on Nov 30,2023, Elapsed time: 0:00:00
+ModelSim Info: # Errors: 0, Warnings: 0
+ModelSim Info: # 
+ModelSim Info: # vsim -t 1ps -L maxii_ver -L gate_work -L work -voptargs="+acc"  cn_tb
+ModelSim Info: # vsim -t 1ps -L maxii_ver -L gate_work -L work -voptargs=""+acc"" cn_tb 
+ModelSim Info: # Start time: 09:53:44 on Nov 30,2023
+ModelSim Info: # ** Note: (vsim-3812) Design is being optimized...
+ModelSim Info: # Loading work.cn_tb(fast)
+ModelSim Info: # Loading work.cn(fast)
+ModelSim Info: # Loading maxii_ver.maxii_io(fast)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast)
+ModelSim Info: # Loading maxii_ver.maxii_lcell_register(fast)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__1)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__1)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__2)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__2)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__3)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__3)
+ModelSim Info: # Loading maxii_ver.maxii_io(fast__1)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__4)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__4)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__5)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__5)
+ModelSim Info: # Loading maxii_ver.maxii_lcell_register(fast__1)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__6)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__7)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__6)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__8)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__7)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__9)
+ModelSim Info: # Loading maxii_ver.maxii_asynch_lcell(fast__8)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__10)
+ModelSim Info: # Loading maxii_ver.maxii_lcell(fast__11)
+ModelSim Info: # Loading maxii_ver.maxii_io(fast__2)
+ModelSim Info: # 
+ModelSim Info: # add wave *
+ModelSim Warning: # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+ModelSim Info: #           File in use by: 86158  Hostname: LAPTOP-G4R5VS09  ProcessID: 16624
+ModelSim Info: #           Attempting to use alternate WLF file "./wlftbjyfs4".
+ModelSim Warning: # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+ModelSim Info: #           Using alternate file: ./wlftbjyfs4
+ModelSim Info: # view structure
+ModelSim Info: # .main_pane.structure.interior.cs.body.struct
+ModelSim Info: # view signals
+ModelSim Info: # .main_pane.objects.interior.cs.body.tree
+ModelSim Info: # run -all
+ModelSim Info: # ** Note: $stop    : D:/ShuDianShiYan/cn/cn_tb.v(41)
+ModelSim Info: #    Time: 10014962 us  Iteration: 0  Instance: /cn_tb
+ModelSim Info: # Break in Module cn_tb at D:/ShuDianShiYan/cn/cn_tb.v line 41
+ModelSim Info: # End time: 09:54:20 on Nov 30,2023, Elapsed time: 0:00:36
+ModelSim Info: # Errors: 0, Warnings: 2
+Info: NativeLink simulation flow was successful

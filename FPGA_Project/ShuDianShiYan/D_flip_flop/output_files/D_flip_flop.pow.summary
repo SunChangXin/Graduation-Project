@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Thu Nov  9 17:35:51 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : D_flip_flop
+Top-level Entity Name : D_flip_flop
+Family : MAX 10
+Device : 10M02SCM153I7G
+Power Models : Final
+Total Thermal Power Dissipation : 112.98 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 66.85 mW
+I/O Thermal Power Dissipation : 46.13 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Sat Dec 23 10:04:23 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : Vision_Test
+Top-level Entity Name : Vision_Test
+Family : MAX II
+Device : EPM1270T144C5
+Timing Models : Final
+Total logic elements : 855 / 1,270 ( 67 % )
+Total pins : 40 / 116 ( 34 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )

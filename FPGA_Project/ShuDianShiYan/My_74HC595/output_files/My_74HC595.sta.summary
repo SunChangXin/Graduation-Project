@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 100C Model Setup 'STCP'
+Slack : -0.256
+TNS   : -1.991
+
+Type  : Slow 1200mV 100C Model Setup 'SHCP'
+Slack : 0.107
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Hold 'SHCP'
+Slack : 0.450
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Hold 'STCP'
+Slack : 0.697
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Minimum Pulse Width 'SHCP'
+Slack : -3.000
+TNS   : -14.224
+
+Type  : Slow 1200mV 100C Model Minimum Pulse Width 'STCP'
+Slack : -3.000
+TNS   : -14.224
+
+Type  : Slow 1200mV -40C Model Setup 'STCP'
+Slack : -0.109
+TNS   : -0.816
+
+Type  : Slow 1200mV -40C Model Setup 'SHCP'
+Slack : 0.205
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Hold 'SHCP'
+Slack : 0.405
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Hold 'STCP'
+Slack : 0.618
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'SHCP'
+Slack : -3.000
+TNS   : -14.224
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'STCP'
+Slack : -3.000
+TNS   : -14.224
+
+Type  : Fast 1200mV -40C Model Setup 'STCP'
+Slack : 0.439
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Setup 'SHCP'
+Slack : 0.596
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Hold 'SHCP'
+Slack : 0.163
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Hold 'STCP'
+Slack : 0.217
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'STCP'
+Slack : -3.000
+TNS   : -12.384
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'SHCP'
+Slack : -3.000
+TNS   : -12.368
+
+------------------------------------------------------------

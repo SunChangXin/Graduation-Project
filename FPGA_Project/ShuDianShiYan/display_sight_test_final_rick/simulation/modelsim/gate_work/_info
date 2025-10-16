@@ -1,0 +1,35 @@
+m255
+K4
+z2
+!s11f vlog 2020.4 2020.10, Oct 13 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Multisim and Quartus/Digital and Electrical Comprehensive Experiment/display_sight_test_new_new/simulation/modelsim
+vdisplay
+!s110 1701927802
+!i10b 1
+!s100 G]XQezHkF;QXSK9CU7g0<0
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+Ig4_WIi`Tn>z8z76bIXBgX3
+R0
+w1701927786
+8display.vo
+Fdisplay.vo
+!i122 0
+L0 32 31445
+VDg1SIo80bB@j0V0VzS_@n1
+OL;L;2020.4;71
+r1
+!s85 0
+31
+!s108 1701927802.000000
+!s107 display.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|display.vo|
+!i113 0
+o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 -vlog01compat -work work +incdir+. -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+tCvgOpt 0

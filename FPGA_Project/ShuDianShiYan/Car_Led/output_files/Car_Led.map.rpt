@@ -1,0 +1,469 @@
+Analysis & Synthesis report for Car_Led
+Thu Dec 14 16:03:04 2023
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Car_Led|current_state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |Car_Led
+ 14. Parameter Settings for User Entity Instance: divide:c1
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Dec 14 16:03:04 2023          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; Car_Led                                        ;
+; Top-level Entity Name              ; Car_Led                                        ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 113                                            ;
+;     Total combinational functions  ; 113                                            ;
+;     Dedicated logic registers      ; 37                                             ;
+; Total registers                    ; 37                                             ;
+; Total pins                         ; 30                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M02SCM153I7G     ;                    ;
+; Top-level entity name                                            ; Car_Led            ; Car_Led            ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 14          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 14          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-14        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                     ;
++----------------------------------+-----------------+------------------------+------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path       ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------+---------+
+; ../divide/divide.v               ; yes             ; User Verilog HDL File  ; D:/ShuDianShiYan/divide/divide.v   ;         ;
+; Car_Led.v                        ; yes             ; User Verilog HDL File  ; D:/ShuDianShiYan/Car_Led/Car_Led.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 113       ;
+;                                             ;           ;
+; Total combinational functions               ; 113       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 32        ;
+;     -- 3 input functions                    ; 29        ;
+;     -- <=2 input functions                  ; 52        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 82        ;
+;     -- arithmetic mode                      ; 31        ;
+;                                             ;           ;
+; Total registers                             ; 37        ;
+;     -- Dedicated logic registers            ; 37        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 30        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 37        ;
+; Total fan-out                               ; 477       ;
+; Average fan-out                             ; 2.27      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |Car_Led                   ; 113 (54)            ; 37 (4)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 30   ; 0            ; 0          ; |Car_Led            ; Car_Led     ; work         ;
+;    |divide:c1|             ; 59 (59)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Car_Led|divide:c1  ; divide      ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Car_Led|current_state                                                                                ;
++---------------------+------------------+------------------+------------------+------------------+---------------------+
+; Name                ; current_state.S4 ; current_state.S2 ; current_state.S1 ; current_state.S3 ; current_state.START ;
++---------------------+------------------+------------------+------------------+------------------+---------------------+
+; current_state.START ; 0                ; 0                ; 0                ; 0                ; 0                   ;
+; current_state.S3    ; 0                ; 0                ; 0                ; 1                ; 1                   ;
+; current_state.S1    ; 0                ; 0                ; 1                ; 0                ; 1                   ;
+; current_state.S2    ; 0                ; 1                ; 0                ; 0                ; 1                   ;
+; current_state.S4    ; 1                ; 0                ; 0                ; 0                ; 1                   ;
++---------------------+------------------+------------------+------------------+------------------+---------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; seg_led_1[0]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_1[1]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_1[2]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_1[3]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_1[4]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_1[5]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_1[6]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[0]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[1]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[2]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[3]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[4]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[5]$latch                                  ; seg_led_1[8]        ; no                     ;
+; seg_led_2[6]$latch                                  ; seg_led_1[8]        ; no                     ;
+; Number of user-specified and inferred latches = 14  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Registers Removed During Synthesis                         ;
++---------------------------------------+--------------------+
+; Register name                         ; Reason for Removal ;
++---------------------------------------+--------------------+
+; current_state.S1                      ; Lost fanout        ;
+; current_state~4                       ; Lost fanout        ;
+; current_state~5                       ; Lost fanout        ;
+; current_state~6                       ; Lost fanout        ;
+; current_state~7                       ; Lost fanout        ;
+; Total Number of Removed Registers = 5 ;                    ;
++---------------------------------------+--------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 37    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 37    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Car_Led|seg_led_1[6]      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Car_Led|seg_led_1[4]      ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Car_Led|seg_led_1[6]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Car_Led ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; START          ; 0000  ; Unsigned Binary                                ;
+; S1             ; 0110  ; Unsigned Binary                                ;
+; S2             ; 1000  ; Unsigned Binary                                ;
+; S3             ; 0001  ; Unsigned Binary                                ;
+; S4             ; 1111  ; Unsigned Binary                                ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divide:c1 ;
++----------------+----------+----------------------------+
+; Parameter Name ; Value    ; Type                       ;
++----------------+----------+----------------------------+
+; WIDTH          ; 32       ; Signed Integer             ;
+; N              ; 12000000 ; Signed Integer             ;
++----------------+----------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 30                          ;
+; cycloneiii_ff         ; 37                          ;
+;     CLR               ; 37                          ;
+; cycloneiii_lcell_comb ; 119                         ;
+;     arith             ; 31                          ;
+;         2 data inputs ; 31                          ;
+;     normal            ; 88                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 20                          ;
+;         3 data inputs ; 29                          ;
+;         4 data inputs ; 32                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.44                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Thu Dec 14 16:02:58 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Car_Led -c Car_Led
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 14 of the 14 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /shudianshiyan/debounce/debounce.v
+    Info (12023): Found entity 1: debounce File: D:/ShuDianShiYan/debounce/debounce.v Line: 18
+Warning (12090): Entity "divide" obtained from "../divide/divide.v" instead of from Quartus Prime megafunction library File: D:/ShuDianShiYan/divide/divide.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file /shudianshiyan/divide/divide.v
+    Info (12023): Found entity 1: divide File: D:/ShuDianShiYan/divide/divide.v Line: 18
+Info (12021): Found 1 design units, including 1 entities, in source file car_led.v
+    Info (12023): Found entity 1: Car_Led File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 1
+Info (12127): Elaborating entity "Car_Led" for the top level hierarchy
+Warning (10235): Verilog HDL Always Construct warning at Car_Led.v(83): variable "next_state" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 83
+Warning (10235): Verilog HDL Always Construct warning at Car_Led.v(88): variable "next_state" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 88
+Warning (10235): Verilog HDL Always Construct warning at Car_Led.v(93): variable "next_state" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 93
+Warning (10235): Verilog HDL Always Construct warning at Car_Led.v(98): variable "next_state" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 98
+Warning (10235): Verilog HDL Always Construct warning at Car_Led.v(103): variable "next_state" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 103
+Warning (10240): Verilog HDL Always Construct warning at Car_Led.v(68): inferring latch(es) for variable "seg_led_1", which holds its previous value in one or more paths through the always construct File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Warning (10240): Verilog HDL Always Construct warning at Car_Led.v(68): inferring latch(es) for variable "seg_led_2", which holds its previous value in one or more paths through the always construct File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[0]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[1]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[2]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[3]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[4]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[5]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[6]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[7]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_2[8]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[0]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[1]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[2]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[3]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[4]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[5]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[6]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[7]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (10041): Inferred latch for "seg_led_1[8]" at Car_Led.v(68) File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (12128): Elaborating entity "divide" for hierarchy "divide:c1" File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 17
+Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
+    Info (13026): Duplicate LATCH primitive "seg_led_1[2]$latch" merged with LATCH primitive "seg_led_1[1]$latch" File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Info (13026): Duplicate LATCH primitive "seg_led_2[5]$latch" merged with LATCH primitive "seg_led_1[1]$latch" File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Info (13026): Duplicate LATCH primitive "seg_led_2[4]$latch" merged with LATCH primitive "seg_led_1[1]$latch" File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Info (13026): Duplicate LATCH primitive "seg_led_2[6]$latch" merged with LATCH primitive "seg_led_1[6]$latch" File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Warning (13012): Latch seg_led_1[0]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_1[1]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_1[3]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_1[4]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_1[5]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw[0] File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 2
+Warning (13012): Latch seg_led_1[6]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_2[0]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_2[1]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal sw[0] File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 2
+Warning (13012): Latch seg_led_2[2]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and PRE on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13012): Latch seg_led_2[3]$latch has unsafe behavior File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+    Warning (13013): Ports ENA and CLR on the latch are fed by the same signal current_state.START File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 27
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "led[2]" is stuck at VCC File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 5
+    Warning (13410): Pin "led[5]" is stuck at VCC File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 5
+    Warning (13410): Pin "seg_led_1[7]" is stuck at GND File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13410): Pin "seg_led_1[8]" is stuck at GND File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13410): Pin "seg_led_2[7]" is stuck at GND File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+    Warning (13410): Pin "seg_led_2[8]" is stuck at GND File: D:/ShuDianShiYan/Car_Led/Car_Led.v Line: 68
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/ShuDianShiYan/Car_Led/output_files/Car_Led.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 143 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 24 output pins
+    Info (21061): Implemented 113 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
+    Info: Peak virtual memory: 4857 megabytes
+    Info: Processing ended: Thu Dec 14 16:03:04 2023
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:04
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/ShuDianShiYan/Car_Led/output_files/Car_Led.map.smsg.
+
+
