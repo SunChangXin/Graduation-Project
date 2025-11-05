@@ -1,0 +1,9 @@
+mmpp_config: traffic_mmpp4.yaml
+topo: topo_fattree_k8.yaml
+server_line_rate_gbps: 10
+sfc_length: 4
+cross_flows_list: [0,2,4,6,8,10,12]
+pvr: 2
+percentile: 0.99999
+trials: 2000
+seed: 123

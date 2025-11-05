@@ -1,0 +1,13 @@
+dc_sizes_servers: [2000, 4000, 8000, 12000, 16000]  # DC规模（服务器数）
+line_rate_gbps: 10
+max_vnfs_per_server: 4
+vnf_types: 10
+sfcs: 10
+pvr: 2
+load_ratio: 0.6
+request_rate_min_mbps: 10
+request_rate_max_mbps: 500
+sfc_length_candidates: [3,4,5]
+trials: 30
+seed: 42
+prebuild_dags: true  # 切为 true 即“预生成DAG”场景

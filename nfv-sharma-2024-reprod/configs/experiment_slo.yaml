@@ -1,0 +1,9 @@
+mmpp_config: traffic_mmpp4.yaml
+topo: topo_fattree_k8.yaml
+server_line_rate_gbps: 10
+sfc_length: 4
+cross_flows: 4
+pvr: 2
+percentiles: [0.99, 0.999, 0.9999, 0.99999, 0.999999]  # 输出多点
+trials: 2000         # Monte Carlo 次数（可增大以平滑）
+seed: 123

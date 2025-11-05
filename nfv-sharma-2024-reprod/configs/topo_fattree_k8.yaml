@@ -1,0 +1,7 @@
+k: 8
+link_capacity_gbps: 10          # 边、聚合、接入层默认端口容量
+core_uplink_capacity_gbps: 40   # 核心上行更大（可调）
+server_nic_gbps: 10
+servers_per_edge: 4
+pods: 8
+notes: "简化Fat-tree，端口数与连线按k=8模板自动推导。"
