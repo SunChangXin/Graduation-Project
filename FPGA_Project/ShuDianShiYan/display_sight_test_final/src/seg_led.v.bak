@@ -1,8 +1,0 @@
-module seg_led(
-     input                   clk    ,  
-     input                   rst_n  ,          // 复位信号
-     input         [7:0]     bcd     ,         // 2位数码管要显示的数值
-      output        [7:0]     seg_sel,        // 数码管位选 
-    output        [7:0]     seg_led         // 数码管段选
-);
-endmodule
